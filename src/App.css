@@ -1,0 +1,309 @@
+/* Global App Styles */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Dashboard Specific Styles */
+.dashboard-container {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  padding: 0;
+}
+
+.company-selection-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+  overflow: hidden;
+  position: relative;
+}
+
+.company-selection-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  pointer-events: none;
+}
+
+.company-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.company-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+}
+
+.company-card.selected {
+  transform: translateY(-8px) scale(1.05);
+  border-color: #4caf50;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  box-shadow: 0 16px 40px rgba(76, 175, 80, 0.4);
+}
+
+.company-logo-container {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(248, 249, 250, 0.5);
+  margin-bottom: 16px;
+}
+
+.company-logo {
+  max-height: 60px;
+  max-width: 120px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.company-card.selected .company-logo {
+  filter: brightness(1.1);
+}
+
+.document-types-section {
+  margin-top: 40px;
+}
+
+.document-type-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.document-type-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+.document-type-card .MuiCardContent-root {
+  flex-grow: 1;
+  padding: 24px;
+}
+
+.document-type-card .MuiCardActions-root {
+  padding: 16px 24px;
+  background: rgba(248, 249, 250, 0.5);
+}
+
+.document-type-card .MuiButton-root {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 8px;
+  text-transform: none;
+  font-weight: 600;
+  padding: 12px 24px;
+  transition: all 0.3s ease;
+}
+
+.document-type-card .MuiButton-root:hover {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Page Header Styles */
+.page-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.page-title {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.page-subtitle {
+  color: rgba(0,0,0,0.6);
+  font-weight: 400;
+}
+
+/* Section Headers */
+.section-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.section-title {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  color: rgba(0,0,0,0.6);
+  font-weight: 400;
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+.scale-in {
+  animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 16px;
+  }
+  
+  .company-selection-section {
+    border-radius: 12px;
+    margin-bottom: 24px;
+  }
+  
+  .company-card {
+    margin-bottom: 16px;
+  }
+  
+  .company-logo-container {
+    height: 60px;
+    margin-bottom: 12px;
+  }
+  
+  .company-logo {
+    max-height: 40px;
+    max-width: 100px;
+  }
+  
+  .document-type-card .MuiCardContent-root {
+    padding: 20px;
+  }
+  
+  .document-type-card .MuiCardActions-root {
+    padding: 12px 20px;
+  }
+  
+  .document-type-card .MuiButton-root {
+    padding: 10px 20px;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-container {
+    padding: 12px;
+  }
+  
+  .company-selection-section {
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .document-type-card .MuiButton-root {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Loading States */
+.loading-shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Success States */
+.success-chip {
+  background: linear-gradient(135deg, #4caf50 0%, #45a049 100%) !important;
+  color: white !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3) !important;
+}
+
+/* Focus States for Accessibility */
+.company-card:focus-visible,
+.document-type-card:focus-visible {
+  outline: 3px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .dashboard-container {
+    background: white !important;
+  }
+  
+  .company-selection-section,
+  .document-type-card {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+  }
+}
