@@ -133,7 +133,7 @@ const SalarySlipTemplate = ({ data, company }) => {
             {/* === HEADER SECTION === */}
             <TableRow>
               <TableCell colSpan={4} sx={{ textAlign: "center", fontWeight: "bold" }}>
-                SMART SOFTWARE SERVICES (I) PVT. LTD.
+                {company.name}
               </TableCell>
             </TableRow>
             <TableRow>
@@ -145,7 +145,7 @@ const SalarySlipTemplate = ({ data, company }) => {
                   fontWeight: "bold",
                 }}
               >
-                406 Changbhale Heights, Near Kalpataru Estate Phase III, Pimple Gurav, Pune 411 061.
+                {company.address}
               </TableCell>
             </TableRow>
             <TableRow>
