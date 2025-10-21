@@ -26,7 +26,7 @@ const IncrementLetterTemplate = ({ data, company }) => {
     <A4Page
       headerSrc={company.header || company.headerImage}
       footerSrc={company.footer || company.footerImage}
-      watermarkSrc={company.watermark || company.watermarkImage}
+      watermarkSrc={company.watermark || company.watermarkImage} 
       contentTop="48mm"
       contentBottom="28mm"
       company={company}
