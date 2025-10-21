@@ -15,7 +15,7 @@ import smart_header from '../assets/images/SmartSoftware/smartsoftware-header.pn
 import placeholderHeader from '../assets/images/SmartSoftware/smart-header.png';
 // import placeholderFooter from '../assets/images/placeholder-footer.svg';
 import placeholderFooter from '../assets/images/SmartSoftware/smart-footer.png';
-import placeholderWatermark from '../assets/images/placeholder-watermark.svg';
+import placeholderWatermark from '../assets/images/SmartSoftware/Watermark.png';
 import placeholderSignature from '../assets/images/SmartSoftware/Sign.png';
 import placeholderStamp from '../assets/images/SmartSoftware/Stamp.png';
 

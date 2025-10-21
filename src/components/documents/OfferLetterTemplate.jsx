@@ -33,17 +33,17 @@ const OfferLetterTemplate = ({ company, data }) => {
       <Box className="page-break" />
 
       {/* Page 3 */}
-      <OfferLetterPage3 data={data} company={company} />
+      {/* <OfferLetterPage3 data={data} company={company} /> */}
 
-      <Box className="page-break" />
+      {/* <Box className="page-break" /> */}
 
       {/* Page 4 */}
-      <OfferLetterPage4 data={data} company={company} />
+      {/* <OfferLetterPage4 data={data} company={company} /> */}
 
-      <Box className="page-break" />
+      {/* <Box className="page-break" /> */}
 
       {/* Page 5 */}
-      <OfferLetterPage5 data={data} company={company} />
+      {/* <OfferLetterPage5 data={data} company={company} /> */}
     </Box>
   );
 };

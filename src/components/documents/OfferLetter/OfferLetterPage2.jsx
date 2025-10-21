@@ -1,20 +1,44 @@
 import React from "react";
-import { Typography, Table, TableHead, TableBody, TableRow, TableCell, Box, TableContainer } from "@mui/material";
+import { Typography, Table, TableHead, TableBody, TableRow, TableCell, Box, TableContainer, Grid } from "@mui/material";
 import A4Page from "../../layout/A4Page";
 import { generateOfferLetterComponents, formatCurrency } from "../../../utils/salaryCalculations";
+import signature from "../../../assets/images/SmartSoftware/Sign.png";
+import stamp from "../../../assets/images/SmartSoftware/Stamp.png";
 
 const OfferLetterPage2 = ({ data, company }) => {
   // Use auto-calculation if CTC is provided, otherwise use manual components
   const ctc = parseFloat(data.ctc || data.annualSalary || 350000); // Default to 3.5 LPA
   const autoComponents = generateOfferLetterComponents(ctc);
+
+  // === Total Salary ===
+  const totalSalaryAnually = parseFloat(data.salary); // annual salary
+
+  // === Annual components (percentages of totalSalaryAnually) ===
+  const basicAnnual = totalSalaryAnually * 0.4013;
+  const hraAnnual = totalSalaryAnually * 0.1798;
+  const conveyanceAnnual = totalSalaryAnually * 0.1599;
+  const medicAnnual = totalSalaryAnually * 0.1394;
+  const specialAnnual = totalSalaryAnually * 0.1196;
+
+  // === Monthly components ===
+  const basicMonthly = Math.round(basicAnnual / 12);
+  const hraMonthly = Math.round(hraAnnual / 12);
+  const conveyanceMonthly = Math.round(conveyanceAnnual / 12);
+  const medicMonthly = Math.round(medicAnnual / 12);
+  const specialMonthly = Math.round(specialAnnual / 12);
+
+  // === Components array for table ===
+  const salaryComponents = [
+    { name: "Basic", monthly: basicMonthly, annual: basicAnnual },
+    { name: "HRA", monthly: hraMonthly, annual: hraAnnual },
+    { name: "Conveyance", monthly: conveyanceMonthly, annual: conveyanceAnnual },
+    { name: "Medic", monthly: medicMonthly, annual: medicAnnual },
+    { name: "Special", monthly: specialMonthly, annual: specialAnnual },
+  ];
   
-  // Use provided components or auto-generated ones
-  const salaryComponents = data.salaryComponents && data.salaryComponents.length > 0 
-    ? data.salaryComponents 
-    : autoComponents;
-    
-  const totalMonthly = salaryComponents.reduce((acc, row) => acc + (Number(row.monthly) || 0), 0);
-  const totalAnnual = salaryComponents.reduce((acc, row) => acc + (Number(row.annual) || 0), 0);
+  // === Totals ===
+  const totalMonthly = salaryComponents.reduce((acc, c) => acc + c.monthly, 0);
+  const totalAnnual = salaryComponents.reduce((acc, c) => acc + c.annual, 0);
 
   return (
     <A4Page
@@ -32,41 +56,32 @@ const OfferLetterPage2 = ({ data, company }) => {
         sx={{
           fontSize: "16pt",
           fontWeight: 700,
+          color: "black",
           textDecoration: "underline",
           mb: "8mm",
         }}
       >
-        COMPENSATION STRUCTURE
+        Enclosures: Annexure A-salary Structure
       </Typography>
 
-      {/* Confidentiality Notice */}
-      <Box sx={{ 
-        backgroundColor: "#f5f5f5", 
-        p: "4mm", 
-        borderRadius: "2mm", 
-        mb: "6mm",
-        border: "1px solid #ddd"
+      <Typography sx={{
+        fontSize: "11pt",
+        textAlign: "center",
+        lineHeight: 1.5,
+        fontStyle: "italic",
+        marginBottom: "6mm"
       }}>
-        <Typography sx={{ 
-          fontSize: "11pt", 
-          textAlign: "justify", 
-          lineHeight: 1.5,
-          fontStyle: "italic"
-        }}>
-          <strong>Confidentiality Notice:</strong> Compensation is strictly confidential between the employee and the employer. 
-          It has been determined based on various factors such as employee job role, skills, specific background and 
-          professional merit. This information and any changes therein should be treated as personal and confidential.
-        </Typography>
-      </Box>
+        Annexure A Salary Structure
+      </Typography>
 
       {/* Salary Table */}
       <TableContainer sx={{ mb: "6mm" }}>
         <Table sx={{ border: "2px solid #333" }}>
           <TableHead>
             <TableRow sx={{ backgroundColor: "#1976d2" }}>
-              <TableCell sx={{ 
-                fontWeight: "bold", 
-                border: "1px solid #333", 
+              <TableCell sx={{
+                fontWeight: "bold",
+                border: "1px solid #333",
                 fontSize: "12pt",
                 color: "white",
                 py: "3mm"
@@ -75,9 +90,9 @@ const OfferLetterPage2 = ({ data, company }) => {
               </TableCell>
               <TableCell
                 align="center"
-                sx={{ 
-                  fontWeight: "bold", 
-                  border: "1px solid #333", 
+                sx={{
+                  fontWeight: "bold",
+                  border: "1px solid #333",
                   fontSize: "12pt",
                   color: "white",
                   py: "3mm"
@@ -87,9 +102,9 @@ const OfferLetterPage2 = ({ data, company }) => {
               </TableCell>
               <TableCell
                 align="center"
-                sx={{ 
-                  fontWeight: "bold", 
-                  border: "1px solid #333", 
+                sx={{
+                  fontWeight: "bold",
+                  border: "1px solid #333",
                   fontSize: "12pt",
                   color: "white",
                   py: "3mm"
@@ -102,8 +117,8 @@ const OfferLetterPage2 = ({ data, company }) => {
           <TableBody>
             {salaryComponents.map((row, i) => (
               <TableRow key={i} sx={{ '&:nth-of-type(even)': { backgroundColor: '#f9f9f9' } }}>
-                <TableCell sx={{ 
-                  border: "1px solid #333", 
+                <TableCell sx={{
+                  border: "1px solid #333",
                   fontSize: "11pt",
                   py: "2mm"
                 }}>
@@ -111,8 +126,8 @@ const OfferLetterPage2 = ({ data, company }) => {
                 </TableCell>
                 <TableCell
                   align="right"
-                  sx={{ 
-                    border: "1px solid #333", 
+                  sx={{
+                    border: "1px solid #333",
                     fontSize: "11pt",
                     py: "2mm"
                   }}
@@ -121,8 +136,8 @@ const OfferLetterPage2 = ({ data, company }) => {
                 </TableCell>
                 <TableCell
                   align="right"
-                  sx={{ 
-                    border: "1px solid #333", 
+                  sx={{
+                    border: "1px solid #333",
                     fontSize: "11pt",
                     py: "2mm"
                   }}
@@ -133,9 +148,9 @@ const OfferLetterPage2 = ({ data, company }) => {
             ))}
             {/* Totals Row */}
             <TableRow sx={{ backgroundColor: "#e3f2fd" }}>
-              <TableCell sx={{ 
-                fontWeight: "bold", 
-                border: "2px solid #333", 
+              <TableCell sx={{
+                fontWeight: "bold",
+                border: "2px solid #333",
                 fontSize: "12pt",
                 py: "3mm"
               }}>
@@ -143,9 +158,9 @@ const OfferLetterPage2 = ({ data, company }) => {
               </TableCell>
               <TableCell
                 align="right"
-                sx={{ 
-                  fontWeight: "bold", 
-                  border: "2px solid #333", 
+                sx={{
+                  fontWeight: "bold",
+                  border: "2px solid #333",
                   fontSize: "12pt",
                   py: "3mm"
                 }}
@@ -154,9 +169,9 @@ const OfferLetterPage2 = ({ data, company }) => {
               </TableCell>
               <TableCell
                 align="right"
-                sx={{ 
-                  fontWeight: "bold", 
-                  border: "2px solid #333", 
+                sx={{
+                  fontWeight: "bold",
+                  border: "2px solid #333",
                   fontSize: "12pt",
                   py: "3mm"
                 }}
@@ -168,33 +183,40 @@ const OfferLetterPage2 = ({ data, company }) => {
         </Table>
       </TableContainer>
 
-      {/* Retention Bonus Section */}
-      <Box sx={{ 
-        backgroundColor: "#fff3e0", 
-        p: "4mm", 
-        borderRadius: "2mm", 
-        border: "1px solid #ff9800"
-      }}>
-        <Typography sx={{ 
-          fontSize: "12pt", 
-          mb: "2mm", 
-          fontWeight: "bold",
-          color: "#e65100"
-        }}>
-          Niche Skill Retention Bonus:
-        </Typography>
-        <Typography sx={{ 
-          fontSize: "11pt", 
-          textAlign: "justify", 
-          lineHeight: 1.5
-        }}>
-          You would be eligible for retention bonus. You will receive 48% of Annual earnings of your
-          salary other than special and statutory benefits for each year. This amount is payable
-          subject to completion of 42 Months at JDIT. Please note, this amount is not payable in case
-          of project ramp down or closure, contract completion, termination due to code of conduct or
-          for what so ever is the reason. It is Mandatory to be on project and billable at the time
-          payout after 42 months completion at People Prime.
-        </Typography>
+      <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+        <Box sx={{ mt: "6mm" }}>
+          <Grid container spacing={2} alignItems="center">
+            {/* Left image */}
+            <Grid item>
+              <Box
+                component="img"
+                src={signature}
+                alt="Signature 1"
+                sx={{ width: 100, height: "auto" }}
+              />
+            </Grid>
+
+            {/* Right image */}
+            <Grid item>
+              <Box
+                component="img"
+                src={stamp}
+                alt="Stamp"
+                sx={{ width: 100, height: "auto" }}
+              />
+            </Grid>
+          </Grid>
+
+          {/* Names and designation below images */}
+          <Box sx={{ mt: "2mm" }}>
+            <Typography sx={{ mb: "1mm" }}><strong>Sandeep Patil</strong></Typography>
+            <Typography><strong>HR Manager - HR Shared Services</strong></Typography>
+          </Box>
+        </Box>
+        <Box>
+          <Typography sx={{ mb: "1mm" }}>Signature : ________________________</Typography>
+          <Typography>Candidate Name : {data.candidateName}</Typography>
+        </Box>
       </Box>
     </A4Page>
   );
