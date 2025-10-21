@@ -323,6 +323,7 @@ export const documentTypes = [
             { name: 'designation', label: 'Designation', type: 'text', required: true },
             { name: 'month', label: 'Month', type: 'month', required: true },
             { name: 'totalSalary', label: 'Total Salary', type: 'number', required: true },
+            { name: 'doj', label: 'Date of Joining', type: 'date', require: true },
             // { name: 'basicSalary', label: 'Basic Salary', type: 'number', required: true },
             // { name: 'hra', label: 'HRA', type: 'number', required: true },
             // { name: 'conveyanceAllowance', label: 'Conveyance Allowance', type: 'number', required: true },

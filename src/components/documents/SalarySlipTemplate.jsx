@@ -55,6 +55,16 @@ const SalarySlipTemplate = ({ data, company }) => {
   const dept = data.department || "IT";
   const desg = data.designation || "Quality Analyst";
   const workingDays = data.workingDays || "30";
+  // Convert "YYYY-MM" → "Month YY" (e.g. "2025-07" → "July 25")
+  const month = (() => {
+    if (!data.month) return "March 22"; // fallback
+  
+    const [year, monthNum] = data.month.split("-");
+    const date = new Date(year, monthNum - 1); // JS months start at 0
+    const monthName = date.toLocaleString("default", { month: "long" });
+    const shortYear = year.slice(2);
+    return `${monthName} ${shortYear}`;
+  })();
 
   // === Total Salary ===
   const totalSalary = parseFloat(data.totalSalary || 35000); // default fallback
@@ -140,7 +150,7 @@ const SalarySlipTemplate = ({ data, company }) => {
             </TableRow>
             <TableRow>
               <TableCell colSpan={4} sx={{ textAlign: "center", fontWeight: "bold" }}>
-                Salary Slip September 2022
+                Salary Slip {month}
               </TableCell>
             </TableRow>
 
