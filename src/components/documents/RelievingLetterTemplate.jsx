@@ -3,6 +3,7 @@ import { Box, Typography } from '@mui/material';
 import A4Page from '../layout/A4Page';
 import smartHeader from '../../assets/images/SmartSoftware/smart-header.png'; // Header image
 import newSignature from '../../assets/images/SmartSoftware/Sign.png'; // New signature
+import stamp from "../../assets/images/SmartSoftware/Stamp.png";
 import watermarkImg from '../../assets/images/SmartSoftware/Watermark.png'; // ✅ Watermark image
 
 const RelievingLetterTemplate = ({ data, company }) => {
@@ -26,23 +27,25 @@ const RelievingLetterTemplate = ({ data, company }) => {
     >
       {/* Watermark Image */}
       <Box
-  component="img"
-  src={watermarkImg}
-  alt="Watermark"
-  sx={{
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%) rotate(-30deg)',
-    width: '70%',
-    height: 'auto',
-    opacity: 0.3, // Increase temporarily to see it clearly
-    pointerEvents: 'none',
-    zIndex: 0,
-    userSelect: 'none',
-  }}
-/>
+        component="img"
+        src={watermarkImg}
+        alt="Watermark"
+        sx={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%) rotate(-30deg)',
+          width: '70%',
+          height: 'auto',
+          opacity: 0.3, // Increase temporarily to see it clearly
+          pointerEvents: 'none',
+          zIndex: 0,
+          userSelect: 'none',
+        }}
+      />
 
+      <Typography sx={{ textAlign: "end", mb: "8mm" }}>{data.issueDate}</Typography>
+      <Typography sx={{ mb: "8mm" }}><strong>Ref:SMART\PUNHD\RMG01\Relieving-Letter\SSS2104</strong></Typography>
 
       {/* Title */}
       <Box sx={{ textAlign: 'center', mb: 5, position: 'relative', zIndex: 1 }}>
@@ -64,7 +67,7 @@ const RelievingLetterTemplate = ({ data, company }) => {
           <strong>{data.employeeName || 'Ms. Anagha Arun Kapse'}</strong>
         </Typography>
         <Typography variant="body1" sx={{ mb: 1, fontSize: '12pt' }}>
-          {data.designation || 'Quality Analyst'}
+          <strong>{data.designation || 'Quality Analyst'}</strong>
         </Typography>
       </Box>
 
@@ -89,7 +92,7 @@ const RelievingLetterTemplate = ({ data, company }) => {
       {/* Signature */}
       <Box sx={{ mt: 8, px: 4, position: 'relative', zIndex: 1 }}>
         <Typography variant="body1" sx={{ fontSize: '12pt', mb: 6 }}>
-          For {company.name || 'Smart Software Services (I) Pvt. Ltd.'}
+          For <strong>{company.name || 'Smart Software Services (I) Pvt. Ltd.'}</strong>
         </Typography>
 
         <Box sx={{ textAlign: 'left' }}>
@@ -104,6 +107,17 @@ const RelievingLetterTemplate = ({ data, company }) => {
               mb: 1
             }}
           />
+          <Box 
+            component="img"
+            src={stamp}
+            alt="Stamp"
+            sx={{
+              width: 120,
+              height: 60,
+              objectFit: 'contain',
+              mb: 1
+            }}
+          />
           <Typography variant="body1" sx={{ fontSize: '12pt', lineHeight: 1.2 }}>
             {data.signatoryName || 'Sandeep Patil'}
           </Typography>
@@ -111,36 +125,6 @@ const RelievingLetterTemplate = ({ data, company }) => {
             {data.signatoryDesignation || 'HR Manager - HR Shared Services'}
           </Typography>
         </Box>
-      </Box>
-
-      {/* Footer */}
-      <Box
-        sx={{
-          position: 'absolute',
-          bottom: 10,
-          left: 0,
-          right: 0,
-          textAlign: 'center',
-          fontSize: '9pt',
-          color: 'text.secondary',
-          lineHeight: 1.3,
-          zIndex: 1
-        }}
-      >
-        <Typography variant="body2" sx={{ fontSize: '9pt' }}>
-          info@smartsoftwareservice.com | www.smartsoftwareservice.com
-        </Typography>
-        <Typography variant="body2" sx={{ fontSize: '9pt' }}>
-          CIN : U74990PN2016PTC158285 | +91 20 2721 2597 | 7066511234 | 7066521234
-        </Typography>
-        <Typography variant="body2" sx={{ fontSize: '9pt' }}>
-          Reg. Address: E 102, Lakshadeep Palace, Near HDFC Bank, Kunal Icon Road, Pimple Saudagar,
-          Pune 411027
-        </Typography>
-        <Typography variant="body2" sx={{ fontSize: '9pt' }}>
-          Corporate Address: 406, Changbhale Heights, Near Kalptaru Society, Pimple Gurav, Pune -
-          411061
-        </Typography>
       </Box>
     </A4Page>
   );
