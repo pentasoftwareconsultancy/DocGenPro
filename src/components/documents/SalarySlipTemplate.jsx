@@ -58,7 +58,7 @@ const SalarySlipTemplate = ({ data, company }) => {
   // Convert "YYYY-MM" → "Month YY" (e.g. "2025-07" → "July 25")
   const month = (() => {
     if (!data.month) return "March 22"; // fallback
-  
+
     const [year, monthNum] = data.month.split("-");
     const date = new Date(year, monthNum - 1); // JS months start at 0
     const monthName = date.toLocaleString("default", { month: "long" });
@@ -70,12 +70,12 @@ const SalarySlipTemplate = ({ data, company }) => {
   const totalSalary = parseFloat(data.totalSalary || 35000); // default fallback
 
   // === Auto-calculated components (percentages of totalSalary) ===
-  const basic = totalSalary * 0.4;
-  const hra = totalSalary * 0.18;
-  const conveyance = totalSalary * 0.12;
-  const food = totalSalary * 0.16;
-  const special = totalSalary * 0.06;
-  const others = totalSalary * 0.08; // optional, can be removed if 0
+  const basic = totalSalary * 0.4013;
+  const hra = totalSalary * 0.1798;
+  const conveyance = totalSalary * 0.1599;
+  const food = totalSalary * 0.0797;
+  const special = totalSalary * 0.1196;
+  const others = totalSalary * 0.0597; // optional, can be removed if 0
 
   const pt = parseFloat(data.pt || 200);
   const otherDed = parseFloat(data.otherDeduction || 2000);
