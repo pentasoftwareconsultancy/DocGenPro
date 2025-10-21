@@ -8,7 +8,7 @@ const OfferLetterPage4 = ({ data, company }) => {
       headerSrc={company?.headerImage || "/assets/jdit_header.png"}
       footerSrc={company?.footerImage || "/assets/jdit_footer.png"}
       watermarkSrc={company?.watermarkImage || "/assets/jdit_watermark.png"}
-      contentTop="48mm"
+      contentTop="36mm"
       contentBottom="28mm"
       company={company}
     >
@@ -20,7 +20,7 @@ const OfferLetterPage4 = ({ data, company }) => {
           fontSize: "16pt",
           fontWeight: 700,
           textDecoration: "underline",
-          mb: "8mm",
+          mb: "4mm",
         }}
       >
         EMPLOYMENT POLICIES
@@ -31,19 +31,19 @@ const OfferLetterPage4 = ({ data, company }) => {
         <Typography 
           className="company-accent" 
           sx={{ 
-            fontSize: "12pt", 
+            fontSize: "11pt", 
             fontWeight: "bold", 
-            mb: "3mm",
+            mb: "2mm",
             textDecoration: "underline"
           }}
         >
           Termination of Employment:
         </Typography>
         <Typography sx={{ 
-          fontSize: "11pt", 
+          fontSize: "10pt", 
           textAlign: "justify", 
           lineHeight: 1.5,
-          pl: "3mm"
+          pl: "2mm"
         }}>
           In the event that the employee decides to terminate his or her employment under this
           agreement with {company.shortName || company.name}, he or she shall be required to give
@@ -63,19 +63,19 @@ const OfferLetterPage4 = ({ data, company }) => {
         <Typography 
           className="company-accent" 
           sx={{ 
-            fontSize: "12pt", 
+            fontSize: "11pt", 
             fontWeight: "bold", 
-            mb: "3mm",
+            mb: "2mm",
             textDecoration: "underline"
           }}
         >
           Leave Policy:
         </Typography>
         <Typography sx={{ 
-          fontSize: "11pt", 
+          fontSize: "10pt", 
           textAlign: "justify", 
           lineHeight: 1.5,
-          pl: "3mm"
+          pl: "2mm"
         }}>
           Each Personnel are entitled for total 12 days' annual leaves. The Personnel shall not be
           entitled for any advance paid leave. These paid leaves cannot be carrying forwarded to month
@@ -91,19 +91,19 @@ const OfferLetterPage4 = ({ data, company }) => {
       <Box sx={{ mb: "6mm" }}>
         <Typography 
           sx={{ 
-            fontSize: "12pt", 
+            fontSize: "11pt", 
             fontWeight: "bold", 
-            mb: "3mm",
+            mb: "2mm",
             textDecoration: "underline"
           }}
         >
           Full & Final Settlement:
         </Typography>
         <Typography sx={{ 
-          fontSize: "11pt", 
+          fontSize: "10pt", 
           textAlign: "justify", 
           lineHeight: 1.5,
-          pl: "3mm"
+          pl: "2mm"
         }}>
           In case of employees who have resigned from {company.shortName || company.name} or Converted
           to fulltime or Termination from client, their Full & final settlement would be made after 60
@@ -116,19 +116,19 @@ const OfferLetterPage4 = ({ data, company }) => {
       <Box sx={{ mb: "6mm" }}>
         <Typography 
           sx={{ 
-            fontSize: "12pt", 
+            fontSize: "11pt", 
             fontWeight: "bold", 
-            mb: "3mm",
+            mb: "2mm",
             textDecoration: "underline"
           }}
         >
           Absenteeism from Work:
         </Typography>
         <Typography sx={{ 
-          fontSize: "11pt", 
+          fontSize: "10pt", 
           textAlign: "justify", 
           lineHeight: 1.5,
-          pl: "3mm"
+          pl: "2mm"
         }}>
           Should the employee fail to report for work for more than one (1) day(s) without justifiable
           reasons, the contract employee's employment shall be deemed to be terminated forthwith by
@@ -149,7 +149,7 @@ const OfferLetterPage4 = ({ data, company }) => {
       }}>
         <Typography 
           sx={{ 
-            fontSize: "12pt", 
+            fontSize: "11pt", 
             fontWeight: "bold", 
             mb: "2mm",
             color: "#c62828"
@@ -158,7 +158,7 @@ const OfferLetterPage4 = ({ data, company }) => {
           No-Show Policy:
         </Typography>
         <Typography sx={{ 
-          fontSize: "11pt", 
+          fontSize: "10pt", 
           textAlign: "justify", 
           lineHeight: 1.5
         }}>
@@ -172,7 +172,7 @@ const OfferLetterPage4 = ({ data, company }) => {
       <Box>
         <Typography 
           sx={{ 
-            fontSize: "12pt", 
+            fontSize: "11pt", 
             fontWeight: "bold", 
             mb: "3mm",
             textDecoration: "underline"
@@ -181,7 +181,7 @@ const OfferLetterPage4 = ({ data, company }) => {
           Extension of Contract:
         </Typography>
         <Typography sx={{ 
-          fontSize: "11pt", 
+          fontSize: "10pt", 
           textAlign: "justify",
           pl: "3mm",
           lineHeight: 1.5

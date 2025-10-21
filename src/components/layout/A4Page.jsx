@@ -89,8 +89,8 @@ const A4Page = ({
             position: "fixed",
             bottom: 0,
             left: 0,
-            width: "210mm",
-            height: "25mm",
+            width: "100%",
+            height: "auto",
           },
         }}
       />

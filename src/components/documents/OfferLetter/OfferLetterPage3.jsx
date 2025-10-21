@@ -8,7 +8,7 @@ const OfferLetterPage3 = ({ data, company }) => {
       headerSrc={company?.headerImage || "/assets/jdit_header.png"}
       footerSrc={company?.footerImage || "/assets/jdit_footer.png"}
       watermarkSrc={company?.watermarkImage || "/assets/jdit_watermark.png"}
-      contentTop="48mm"
+      contentTop="36mm"
       contentBottom="28mm"
       company={company}
     >
@@ -40,7 +40,7 @@ const OfferLetterPage3 = ({ data, company }) => {
           Background Check:
         </Typography>
         <Typography sx={{ 
-          fontSize: "11pt", 
+          fontSize: "10pt", 
           textAlign: "justify", 
           lineHeight: 1.5,
           pl: "3mm"
@@ -76,7 +76,7 @@ const OfferLetterPage3 = ({ data, company }) => {
           Important Note:
         </Typography>
         <Typography sx={{ 
-          fontSize: "11pt", 
+          fontSize: "10pt", 
           textAlign: "justify", 
           lineHeight: 1.5
         }}>
@@ -99,7 +99,7 @@ const OfferLetterPage3 = ({ data, company }) => {
           Statutory Benefits:
         </Typography>
         <Typography sx={{ 
-          fontSize: "11pt", 
+          fontSize: "10pt", 
           textAlign: "justify", 
           lineHeight: 1.5,
           pl: "3mm"
@@ -122,7 +122,7 @@ const OfferLetterPage3 = ({ data, company }) => {
           Payment of Salary:
         </Typography>
         <Typography sx={{ 
-          fontSize: "11pt", 
+          fontSize: "10pt", 
           textAlign: "justify", 
           mb: "3mm",
           pl: "3mm",
@@ -135,7 +135,7 @@ const OfferLetterPage3 = ({ data, company }) => {
           {company.shortName || company.name} informed about all payments due to him/her.
         </Typography>
         <Typography sx={{ 
-          fontSize: "11pt", 
+          fontSize: "10pt", 
           textAlign: "justify", 
           pl: "3mm",
           lineHeight: 1.5
@@ -164,7 +164,7 @@ const OfferLetterPage3 = ({ data, company }) => {
           Job Roles & Responsibilities:
         </Typography>
         <Typography sx={{ 
-          fontSize: "11pt", 
+          fontSize: "10pt", 
           textAlign: "justify",
           pl: "3mm",
           lineHeight: 1.5

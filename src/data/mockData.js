@@ -16,8 +16,8 @@ import placeholderHeader from '../assets/images/SmartSoftware/smart-header.png';
 // import placeholderFooter from '../assets/images/placeholder-footer.svg';
 import placeholderFooter from '../assets/images/SmartSoftware/smart-footer.png';
 import placeholderWatermark from '../assets/images/placeholder-watermark.svg';
-import placeholderSignature from '../assets/images/placeholder-signature.svg';
-import placeholderStamp from '../assets/images/placeholder-stamp.svg';
+import placeholderSignature from '../assets/images/SmartSoftware/Sign.png';
+import placeholderStamp from '../assets/images/SmartSoftware/Stamp.png';
 
 export const companies = [
     {

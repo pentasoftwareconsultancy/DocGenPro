@@ -165,7 +165,7 @@ const OfferLetterPage5 = ({ data, company }) => {
           For {company.name}
         </Typography>
         
-        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", textAlign: "center" }}>
           <Box>
             {(company.signature || placeholderSignature) && (
               <Box
