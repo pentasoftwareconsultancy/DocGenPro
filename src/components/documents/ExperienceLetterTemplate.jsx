@@ -50,7 +50,7 @@ const ExperienceLetterTemplate = ({ data, company }) => {
       company={company}
     >
       <Typography sx={{ textAlign: "end", mb: "8mm" }}>{formatDate(data.issueDate)}</Typography>
-      <Typography sx={{ mb: "8mm" }}><strong>Ref:SMART\PUNHD\RMG01\Relieving-Letter\SSS2104</strong></Typography>
+      <Typography sx={{ mb: "8mm" }}><strong>Ref:SMART\PUNHD\RMG01\Relieving-Letter\{data.employeeId}</strong></Typography>
       {/* Letter Header */}
       <Box sx={{ textAlign: 'center', mb: 4 }}>
         <Typography variant="h5" className="company-accent" sx={{ fontWeight: 'bold', mb: 1 }}>

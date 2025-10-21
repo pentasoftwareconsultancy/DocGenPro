@@ -3,7 +3,7 @@ import React from "react";
 import { Box } from "@mui/material";
 import placeholderHeader from '../../assets/images/placeholder-header.svg';
 import placeholderFooter from '../../assets/images/placeholder-footer.svg';
-import placeholderWatermark from '../../assets/images/placeholder-watermark.svg';
+import placeholderWatermark from '../../assets/images/SmartSoftware/Watermark.png';
 
 const A4Page = ({
   headerSrc,
@@ -108,7 +108,7 @@ const A4Page = ({
           width: "120mm",
           height: "120mm",
           transform: "translate(-50%, -50%)",
-          opacity: company?.brandColors?.watermarkOpacity || 0.07,
+          opacity: 0.27,
           pointerEvents: "none",
           userSelect: "none",
           filter: company?.brandColors?.primary ? `hue-rotate(${company.brandColors.hueRotate || 0}deg)` : 'none',

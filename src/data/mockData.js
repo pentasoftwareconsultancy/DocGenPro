@@ -347,7 +347,6 @@ export const documentTypes = [
             { name: 'joiningDate', label: 'Joining Date', type: 'date', required: true },
             { name: 'probationPeriod', label: 'Probation Period (months)', type: 'number', required: false },
             { name: 'salary', label: 'Annual Salary (CTC)', type: 'number', required: true },
-            { name: 'salaryBreakdown', label: 'Salary Breakdown', type: 'textarea', required: false },
             { name: 'location', label: 'Work Location', type: 'text', required: true },
             { name: 'workHours', label: 'Work Hours', type: 'text', required: false },
             { name: 'reportingManager', label: 'Reporting Manager', type: 'text', required: true },
