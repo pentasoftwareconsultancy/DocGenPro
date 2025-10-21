@@ -61,7 +61,7 @@ const A4Page = ({
           zIndex: 1,
           filter: company?.brandColors?.primary ? `hue-rotate(${company.brandColors.hueRotate || 0}deg)` : 'none',
           "@media print": {
-            position: "fixed",
+            position: "absolute",
             top: 0,
             left: 0,
             width: "100%",
@@ -86,7 +86,7 @@ const A4Page = ({
           zIndex: 1,
           filter: company?.brandColors?.primary ? `hue-rotate(${company.brandColors.hueRotate || 0}deg)` : 'none',
           "@media print": {
-            position: "fixed",
+            position: "absolute",
             bottom: 0,
             left: 0,
             width: "100%",
