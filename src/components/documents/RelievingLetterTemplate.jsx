@@ -7,13 +7,13 @@ import stamp from "../../assets/images/SmartSoftware/Stamp.png";
 import watermarkImg from '../../assets/images/SmartSoftware/Watermark.png'; // ✅ Watermark image
 
 const RelievingLetterTemplate = ({ data, company }) => {
-  const formatDate = (dateString) => {
-    if (!dateString) return '';
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-IN', {
-      day: '2-digit',
+  const formatDate = (date) => {
+    if (!date) return '';
+    const d = new Date(date);
+    return d.toLocaleDateString('en-US', {
+      year: 'numeric',
       month: 'long',
-      year: 'numeric'
+      day: 'numeric'
     });
   };
 
@@ -44,8 +44,10 @@ const RelievingLetterTemplate = ({ data, company }) => {
         }}
       />
 
-      <Typography sx={{ textAlign: "end", mb: "8mm" }}>{data.issueDate}</Typography>
-      <Typography sx={{ mb: "8mm" }}><strong>Ref:SMART\PUNHD\RMG01\Relieving-Letter\SSS2104</strong></Typography>
+      <Typography sx={{ textAlign: "end", mb: "8mm" }}>
+        {formatDate(data.issueDate)}
+      </Typography>
+      <Typography sx={{ mb: "8mm" }}><strong>Ref:SMART\PUNHD\RMG01\Relieving-Letter\{data.employeeId}</strong></Typography>
 
       {/* Title */}
       <Box sx={{ textAlign: 'center', mb: 5, position: 'relative', zIndex: 1 }}>
@@ -107,7 +109,7 @@ const RelievingLetterTemplate = ({ data, company }) => {
               mb: 1
             }}
           />
-          <Box 
+          <Box
             component="img"
             src={stamp}
             alt="Stamp"
