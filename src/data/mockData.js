@@ -294,7 +294,7 @@ export const companies = [
         headerImage: placeholderHeader,
         footerImage: placeholderFooter,
         watermarkImage: placeholderWatermark,
-        address: '707 Smart Building, Indore, Madhya Pradesh 452001',
+        address: '406 Changbhale Heights, Near Kalpataru Estate Phase III, Pimple Gurav, Pune 411061',
         email: 'hello@smartsoftwareservices.com',
         phone: '+91 0731-90123456',
         website: 'www.smartsoftwareservices.com',
