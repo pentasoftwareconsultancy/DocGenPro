@@ -25,24 +25,6 @@ const RelievingLetterTemplate = ({ data, company }) => {
       contentBottom="35mm"
       company={company}
     >
-      {/* Watermark Image */}
-      <Box
-        component="img"
-        src={watermarkImg}
-        alt="Watermark"
-        sx={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%) rotate(-30deg)',
-          width: '70%',
-          height: 'auto',
-          opacity: 0.3, // Increase temporarily to see it clearly
-          pointerEvents: 'none',
-          zIndex: 0,
-          userSelect: 'none',
-        }}
-      />
 
       <Typography sx={{ textAlign: "end", mb: "8mm" }}>
         {formatDate(data.issueDate)}
