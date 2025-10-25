@@ -1,6 +1,23 @@
 // Salary calculation utilities for document generation
 
 /**
+ * Get Professional Tax based on month and CTC
+ * @param {string} monthStr - "YYYY-MM" format
+ * @param {number} totalSalary - monthly total salary
+ * @returns {number} - PT amount
+ */
+
+export const getProfessionalTax = (monthStr, totalSalary) => {
+  if (!monthStr) return 200; // default
+  const [year, monthNum] = monthStr.split("-");
+  const month = parseInt(monthNum, 10);
+
+  // Example PT logic (adjust as needed per state rules)
+  if (month === 2) return 300; // February
+  return 200; // Other months
+};
+
+/**
  * Calculate salary breakdown based on CTC
  * @param {number} ctc - Cost to Company (annual amount)
  * @returns {object} - Salary breakdown with all components

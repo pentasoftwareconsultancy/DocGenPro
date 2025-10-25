@@ -8,6 +8,7 @@ import placeholderStamp from '../../assets/images/placeholder-stamp.svg';
 const IncrementLetterTemplate = ({ data, company }) => {
 
   const newCTC = parseFloat(data.newCTC); // annual salary
+  
 
   // === Annual components (percentages of totalSalaryAnually) ===
   const basicAnnual = newCTC * 0.4013;
@@ -38,6 +39,11 @@ const IncrementLetterTemplate = ({ data, company }) => {
       year: 'numeric'
     });
   };
+
+   // Calculate previous year and issue year dynamically
+   const issueDate = data.issueDate ? new Date(data.issueDate) : new Date();
+   const issueYear = issueDate.getFullYear();
+   const prevYear = issueYear - 1;
 
   return (
     <Box sx={{
@@ -74,7 +80,7 @@ const IncrementLetterTemplate = ({ data, company }) => {
         </Typography>
 
         <Typography sx={{ mb: 4 }}>
-          Your performance has been reviewed and your performance banding for the year 2021-2022 is
+          Your performance has been reviewed and your performance banding for the year {prevYear}-{issueYear} is
           "<strong>Met Expectation</strong>".
         </Typography>
 
