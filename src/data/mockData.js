@@ -438,7 +438,14 @@ export const documentTypes = [
             { name: 'department', label: 'Department', type: 'text', required: true },
             { name: 'currentCTC', label: 'Current CTC (Annual)', type: 'number', required: true },
             { name: 'newCTC', label: 'New CTC (Annual)', type: 'number', required: true },
-            { name: 'incrementPercentage', label: 'Increment Percentage', type: 'number', required: true },
+            {
+              name: 'incrementPercentage',
+              label: 'Increment Percentage',
+              type: 'number',
+              required: true,
+              formula: '(newCTC - currentCTC) / currentCTC * 100', // 👈 dynamic formula
+              suffix: '%'
+            },
             { name: 'effectiveDate', label: 'Effective Date', type: 'date', required: true },
             { name: 'issueDate', label: 'Issue Date', type: 'date', required: true },
             { name: 'reason', label: 'Reason for Increment', type: 'textarea', required: false }
