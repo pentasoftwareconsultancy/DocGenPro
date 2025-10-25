@@ -90,7 +90,7 @@ const IncrementLetterTemplate = ({ data, company }) => {
         </Typography>
 
         <Typography sx={{ mb: 4 }}>
-          Details of your revised compensation are given in Salary Annexure.
+          Details of your revised compensation are given in Salary Annexure.  
         </Typography>
 
         <Typography sx={{ mb: 4 }}>
