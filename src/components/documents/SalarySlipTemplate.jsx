@@ -10,7 +10,7 @@ import {
   Paper,
 } from "@mui/material";
 import A4Page from "../layout/A4Page";
-import { formatCurrency } from "../../utils/salaryCalculations";
+import { formatCurrency, getProfessionalTax } from "../../utils/salaryCalculations";
 import wattermark from "../../assets/images/SmartSoftware/Watermark.png";
 import stamp from "../../assets/images/SmartSoftware/Stamp.png";
 import sign from "../../assets/images/SmartSoftware/Sign.png";
@@ -77,7 +77,7 @@ const SalarySlipTemplate = ({ data, company }) => {
   const special = totalSalary * 0.1196;
   const others = totalSalary * 0.0597; // optional, can be removed if 0
 
-  const pt = parseFloat(data.pt || 200);
+  const pt = getProfessionalTax(data.month, totalSalary);
   const otherDed = parseFloat(data.otherDeduction || 2000);
 
   const totalEarning = basic + hra + conveyance + food + special + others;

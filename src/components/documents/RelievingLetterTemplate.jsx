@@ -81,7 +81,7 @@ const RelievingLetterTemplate = ({ data, company }) => {
         <Typography variant="body1" sx={{ fontSize: '12pt', textAlign: 'justify', mb: 2 }}>
           This is in reference to your resignation letter, wherein you had requested to be relieved
           from your services on{' '}
-          <strong>{formatDate(data.relievingDate) || 'November 24, 2022'}</strong>. We wish to
+          <strong>{formatDate(data.lastWorkingDay) || 'November 24, 2022'}</strong>. We wish to
           inform you that your resignation has been accepted and you shall be relieved from your
           duties as <strong>{data.designation || 'Quality Analyst'}</strong>.
         </Typography>
