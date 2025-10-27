@@ -159,13 +159,15 @@ const IncrementLetterTemplate = ({ data, company }) => {
           sx={{
             border: "1.5px solid black",
             borderRadius: 0,
+            backgroundColor: "transparent", // ✅ make transparent
             "& .MuiTableCell-root": {
               border: "1px solid black",
               fontSize: "11pt",
               padding: "6px 8px",
               verticalAlign: "middle",
+              backgroundColor: "transparent", // ✅ make cells transparent too
             },
-            boxShadow: "none",
+            boxShadow: "none", // ✅ remove shadow layer
           }}
         >
           <Table>
@@ -214,7 +216,7 @@ const IncrementLetterTemplate = ({ data, company }) => {
               </TableRow>
 
               {/* Totals */}
-              <TableRow sx={{ backgroundColor: 'lightblue' }}>
+              <TableRow sx={{ backgroundColor: 'rgba(173, 216, 230, 0.5)' }}>
                 <TableCell sx={{ fontWeight: 'bold' }}>Monthly Gross</TableCell>
                 <TableCell align="center" sx={{ fontWeight: 'bold' }}>
                   {formatCurrency(
