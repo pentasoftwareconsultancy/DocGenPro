@@ -89,7 +89,7 @@ const SalarySlipTemplate = ({ data, company }) => {
     <A4Page
       headerSrc={company?.header || company?.headerImage}
       footerSrc={company?.footer || company?.footerImage}
-      watermarkSrc={company?.watermark || wattermark}
+      watermarkSrc={company?.watermarkImage || company?.watermark || wattermark}
       company={company}
       contentTop="45mm"
       contentBottom="30mm"
@@ -97,16 +97,16 @@ const SalarySlipTemplate = ({ data, company }) => {
       {/* ✅ CENTERED WATERMARK */}
       <Box
         component="img"
-        src={wattermark}
+        src={company?.watermarkImage || company?.watermark || wattermark}
         alt="Watermark"
         sx={{
           position: "absolute",
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          width: "120mm",
-          height: "120mm",
-          opacity: 0.1,
+          width: "110mm",
+          height: "50mm",
+          opacity: 0.60,
           pointerEvents: "none",
           userSelect: "none",
         }}

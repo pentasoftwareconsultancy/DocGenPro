@@ -115,7 +115,7 @@ const A4Page = ({
             width: "110mm",
             height: "50mm",
             transform: "translate(-50%, -50%)",
-            opacity: 0.60,   // ✅ better visibility behind content
+            opacity: 0.80,   // ✅ better visibility behind content
             pointerEvents: "none",
             userSelect: "none",
             zIndex: 0,       // ✅ ensures watermark stays behind text
