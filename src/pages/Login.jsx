@@ -14,7 +14,11 @@ import {
   Checkbox,
   Link,
   IconButton,
-  InputAdornment
+  InputAdornment,
+  Dialog,            // 🔹 ADDED
+  DialogTitle,       // 🔹 ADDED
+  DialogContent,     // 🔹 ADDED
+  DialogActions      // 🔹 ADDED
 } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { useToast } from '../components/common/Toast';
@@ -30,6 +34,11 @@ const Login = () => {
   const [error, setError] = useState('');
   const [formErrors, setFormErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+
+  // 🔹 Forgot Password States
+  const [forgotOpen, setForgotOpen] = useState(false);
+  const [resetEmail, setResetEmail] = useState('');
+  const [resetMessage, setResetMessage] = useState('');
 
   const { showSuccess, showError } = useToast();
   const { login } = useAuth();
@@ -61,8 +70,7 @@ const Login = () => {
 
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));
-
-      const success = login(username, password, rememberMe); // ✅ UPDATED
+      const success = login(username, password, rememberMe);
 
       if (success) {
         showSuccess('Login successful! Redirecting to dashboard...');
@@ -78,6 +86,22 @@ const Login = () => {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  // 🔹 Forgot Password Logic (No Backend)
+  const handleForgotPassword = () => {
+    setResetMessage('');
+    if (!resetEmail) {
+      setResetMessage('Please enter your email address.');
+      return;
+    }
+    // Simulate email sending
+    setTimeout(() => {
+      setResetMessage('A password reset link has been sent to your email!');
+      showSuccess('Password reset link sent successfully!');
+      setResetEmail('');
+      setTimeout(() => setForgotOpen(false), 2000);
+    }, 1200);
   };
 
   return (
@@ -102,7 +126,6 @@ const Login = () => {
           justifyContent: 'center',
         }}
       >
-        {/* Overlay */}
         <Box
           sx={{
             position: 'absolute',
@@ -110,7 +133,6 @@ const Login = () => {
             backgroundColor: 'rgba(0,0,0,0.45)',
           }}
         />
-        {/* Branding Text */}
         <Box
           sx={{
             position: 'relative',
@@ -143,12 +165,11 @@ const Login = () => {
         <Paper
           elevation={6}
           sx={{
-            // 🔹 UPDATED: Increased form width and adjusted padding for better balance
             width: '100%',
-            maxWidth: 520, // 🔹 was 420 earlier
-            p: 6, // 🔹 was 5 earlier
+            maxWidth: 520,
+            p: 6,
             borderRadius: 3,
-            boxShadow: '0px 6px 25px rgba(0,0,0,0.1)', // 🔹 slightly deeper shadow
+            boxShadow: '0px 6px 25px rgba(0,0,0,0.1)',
             backgroundColor: '#ffffff',
           }}
         >
@@ -230,7 +251,8 @@ const Login = () => {
                 label="Remember Me"
               />
               <Link
-                href="#"
+                component="button"   // 🔹 ADDED
+                onClick={() => setForgotOpen(true)} // 🔹 ADDED
                 underline="hover"
                 sx={{ fontSize: '0.9rem', color: '#1976d2', fontWeight: 500 }}
               >
@@ -264,6 +286,40 @@ const Login = () => {
           </Box>
         </Paper>
       </Box>
+
+      {/* 🔹 Forgot Password Dialog */}
+      <Dialog open={forgotOpen} onClose={() => setForgotOpen(false)}>
+        <DialogTitle>Forgot Password</DialogTitle>
+        <DialogContent>
+          <Typography variant="body2" sx={{ mb: 2 }}>
+            Enter your email address to receive a password reset link.
+          </Typography>
+          <TextField
+            fullWidth
+            type="email"
+            label="Email Address"
+            value={resetEmail}
+            onChange={(e) => setResetEmail(e.target.value)}
+          />
+          {resetMessage && (
+            <Typography
+              variant="body2"
+              color={resetMessage.includes('sent') ? 'success.main' : 'error'}
+              sx={{ mt: 2 }}
+            >
+              {resetMessage}
+            </Typography>
+          )}
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setForgotOpen(false)} color="secondary">
+            Cancel
+          </Button>
+          <Button onClick={handleForgotPassword} variant="contained">
+            Send Reset Link
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 };
