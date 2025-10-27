@@ -9,13 +9,12 @@ import {
   Alert,
   useMediaQuery,
   useTheme,
-  CircularProgress
+  CircularProgress,
 } from '@mui/material';
 import { useToast } from '../components/common/Toast';
 import AnimatedContainer from '../components/common/AnimatedContainer';
 import { useAuth } from "../context/AuthContext";
 import { validateForm } from '../utils/validationUtils';
-import ResponsiveContainer from '../components/common/ResponsiveContainer';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -27,29 +26,21 @@ const Login = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
     setFormErrors({});
-    
-    // Define validation rules
+
     const validationRules = {
-      username: {
-        required: true,
-        message: 'Username is required'
-      },
-      password: {
-        required: true,
-        message: 'Password is required'
-      }
+      username: { required: true, message: 'Username is required' },
+      password: { required: true, message: 'Password is required' },
     };
-    
-    // Validate form
+
     const formData = { username, password };
     const errors = validateForm(formData, validationRules);
-    
+
     if (Object.keys(errors).length > 0) {
       setFormErrors(errors);
       setError('Please correct the errors below');
@@ -58,17 +49,14 @@ const Login = () => {
     }
 
     setIsLoading(true);
-    
+
     try {
-      // Simulate API call delay
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
+
       const success = login(username, password);
       if (success) {
         showSuccess('Login successful! Redirecting to dashboard...');
-        setTimeout(() => {
-          navigate('/dashboard');
-        }, 500);
+        setTimeout(() => navigate('/dashboard'), 800);
       } else {
         setError('Invalid username or password');
         showError('Invalid credentials. Please check your username and password.');
@@ -81,106 +69,147 @@ const Login = () => {
       setIsLoading(false);
     }
   };
-  
-  const handleInputChange = (field, value) => {
-    if (field === 'username') {
-      setUsername(value);
-    } else if (field === 'password') {
-      setPassword(value);
-    }
-    
-    // Clear error for this field if it exists
-    if (formErrors[field]) {
-      setFormErrors(prev => {
-        const newErrors = { ...prev };
-        delete newErrors[field];
-        return newErrors;
-      });
-    }
-    
-    // Clear general error if any field is changed
-    if (error) {
-      setError('');
-    }
-  };
 
   return (
-    <AnimatedContainer animation="fade" duration={600}>
-      <ResponsiveContainer sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '80vh' }}>
-      <AnimatedContainer animation="slide" direction="up" delay={200} duration={500}>
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: isMobile ? 'column' : 'row',
+        height: '100vh',
+        width: '100%',
+      }}
+    >
+      {/* Left Image Section (55%) */}
+      <Box
+        sx={{
+          width: isMobile ? '100%' : '55%',
+          backgroundImage: 'url("https://i.pinimg.com/736x/32/72/fd/3272fdbde5f3f2a613b4bfa3bc3f9135.jpg")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          position: 'relative',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        {/* Overlay */}
+        <Box
+          sx={{
+            position: 'absolute',
+            inset: 0,
+            backgroundColor: 'rgba(0,0,0,0.45)',
+          }}
+        />
+        {/* Branding Text */}
+        <Box
+          sx={{
+            position: 'relative',
+            zIndex: 1,
+            textAlign: 'center',
+            color: '#fff',
+            px: 3,
+          }}
+        >
+          <Typography variant={isMobile ? 'h4' : 'h3'} fontWeight="bold" sx={{ mb: 1 }}>
+            DocGenPro
+          </Typography>
+          <Typography variant={isMobile ? 'body1' : 'h6'} sx={{ opacity: 0.9 }}>
+            Automate Your Document Creation with Ease
+          </Typography>
+        </Box>
+      </Box>
+
+      {/* Right Form Section (45%) */}
+      <Box
+        sx={{
+          width: isMobile ? '100%' : '45%',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          backgroundColor: '#f8f9fa',
+          p: isMobile ? 3 : 5,
+        }}
+      >
         <Paper
           elevation={6}
           sx={{
-            width: isMobile ? '90%' : '400px',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            padding: isMobile ? 3 : 4,
-            borderRadius: 2
+            width: '100%',
+            maxWidth: 420,
+            p: 5,
+            borderRadius: 3,
+            boxShadow: '0px 6px 20px rgba(0,0,0,0.08)',
           }}
         >
-        <Typography component="h1" variant={isMobile ? "h5" : "h4"} sx={{ mb: 2 }}>
-          Document Generator Login
-        </Typography>
-        <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2, width: '100%' }}>
-          {error && (
-            <Alert severity="error" sx={{ mb: 2 }}>
-              {error}
-            </Alert>
-          )}
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="username"
-            label="Username"
-            name="username"
-            autoComplete="username"
-            autoFocus
-            value={username}
-            onChange={(e) => handleInputChange('username', e.target.value)}
-            error={!!formErrors.username}
-            helperText={formErrors.username}
-            size={isMobile ? "small" : "medium"}
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            value={password}
-            onChange={(e) => handleInputChange('password', e.target.value)}
-            error={!!formErrors.password}
-            helperText={formErrors.password}
-            size={isMobile ? "small" : "medium"}
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            disabled={isLoading}
-            startIcon={isLoading ? <CircularProgress size={20} color="inherit" /> : null}
-            sx={{ 
-              mt: 3, 
-              mb: 2,
-              py: isMobile ? 1 : 1.5,
-              fontSize: isMobile ? '0.9rem' : '1rem'
-            }}
-          >
-            {isLoading ? 'Signing In...' : 'Sign In'}
-          </Button>
-          {/* <Typography variant="body2" color="text.secondary" align="center">
-            Use username: admin, password: admin123
-          </Typography> */}
-        </Box>
+          <Typography component="h1" variant="h5" sx={{ mb: 2, textAlign: 'center', fontWeight: 600 }}>
+            Welcome to DocGenPro
+          </Typography>
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 3, textAlign: 'center' }}>
+            Sign in to generate and manage your documents effortlessly.
+          </Typography>
+
+          <Box component="form" onSubmit={handleSubmit}>
+            {error && (
+              <Alert severity="error" sx={{ mb: 2 }}>
+                {error}
+              </Alert>
+            )}
+
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="username"
+              label="Username"
+              name="username"
+              autoComplete="username"
+              autoFocus
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              error={!!formErrors.username}
+              helperText={formErrors.username}
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              error={!!formErrors.password}
+              helperText={formErrors.password}
+            />
+
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              disabled={isLoading}
+              startIcon={isLoading ? <CircularProgress size={20} color="inherit" /> : null}
+              sx={{
+                mt: 3,
+                mb: 2,
+                py: 1.5,
+                fontSize: '1rem',
+                fontWeight: 600,
+                textTransform: 'none',
+                backgroundColor: '#1976d2',
+                '&:hover': { backgroundColor: '#125ea7' },
+              }}
+            >
+              {isLoading ? 'Signing In...' : 'Sign In'}
+            </Button>
+
+            <Typography variant="body2" align="center" color="text.secondary">
+              © {new Date().getFullYear()} DocGenPro — All Rights Reserved
+            </Typography>
+          </Box>
         </Paper>
-      </AnimatedContainer>
-      </ResponsiveContainer>
-    </AnimatedContainer>
+      </Box>
+    </Box>
   );
 };
 
