@@ -232,7 +232,7 @@ const Login = () => {
             />
 
             {/* Remember Me + Forgot Password */}
-            <Box
+            {/* <Box
               sx={{
                 display: 'flex',
                 justifyContent: 'space-between',
@@ -258,7 +258,7 @@ const Login = () => {
               >
                 Forgot Password?
               </Link>
-            </Box>
+            </Box> */}
 
             <Button
               type="submit"
