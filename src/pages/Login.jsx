@@ -62,7 +62,8 @@ const Login = () => {
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));
 
-      const success = login(username, password);
+      const success = login(username, password, rememberMe); // ✅ UPDATED
+
       if (success) {
         showSuccess('Login successful! Redirecting to dashboard...');
         setTimeout(() => navigate('/dashboard'), 800);

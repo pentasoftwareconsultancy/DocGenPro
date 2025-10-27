@@ -12,26 +12,35 @@ export const AuthProvider = ({ children }) => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    // Check if user is already logged in from localStorage
-    const storedUser = localStorage.getItem('currentUser');
+    // ✅ Load user from localStorage OR sessionStorage
+    const storedUser =
+      localStorage.getItem('currentUser') ||
+      sessionStorage.getItem('currentUser');
+
     if (storedUser) {
       setCurrentUser(JSON.parse(storedUser));
     }
     setLoading(false);
   }, []);
 
-  const login = (username, password) => {
+  // ✅ Added rememberMe parameter
+  const login = (username, password, rememberMe = false) => {
     setError('');
-    // Find user in mock data
     const user = users.find(
       (user) => user.username === username && user.password === password
     );
 
     if (user) {
-      // Remove password from user object before storing
       const { password, ...userWithoutPassword } = user;
       setCurrentUser(userWithoutPassword);
-      localStorage.setItem('currentUser', JSON.stringify(userWithoutPassword));
+
+      // ✅ Store user based on rememberMe
+      if (rememberMe) {
+        localStorage.setItem('currentUser', JSON.stringify(userWithoutPassword));
+      } else {
+        sessionStorage.setItem('currentUser', JSON.stringify(userWithoutPassword));
+      }
+
       return true;
     } else {
       setError('Invalid username or password');
@@ -42,15 +51,9 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     setCurrentUser(null);
     localStorage.removeItem('currentUser');
+    sessionStorage.removeItem('currentUser');
   };
 
-  const value = {
-    currentUser,
-    login,
-    logout,
-    error,
-    loading
-  };
-
+  const value = { currentUser, login, logout, error, loading };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
