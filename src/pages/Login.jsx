@@ -10,7 +10,13 @@ import {
   useMediaQuery,
   useTheme,
   CircularProgress,
+  FormControlLabel,
+  Checkbox,
+  Link,
+  IconButton,
+  InputAdornment
 } from '@mui/material';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { useToast } from '../components/common/Toast';
 import AnimatedContainer from '../components/common/AnimatedContainer';
 import { useAuth } from "../context/AuthContext";
@@ -19,9 +25,12 @@ import { validateForm } from '../utils/validationUtils';
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState('');
   const [formErrors, setFormErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+
   const { showSuccess, showError } = useToast();
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -133,11 +142,13 @@ const Login = () => {
         <Paper
           elevation={6}
           sx={{
+            // 🔹 UPDATED: Increased form width and adjusted padding for better balance
             width: '100%',
-            maxWidth: 420,
-            p: 5,
+            maxWidth: 520, // 🔹 was 420 earlier
+            p: 6, // 🔹 was 5 earlier
             borderRadius: 3,
-            boxShadow: '0px 6px 20px rgba(0,0,0,0.08)',
+            boxShadow: '0px 6px 25px rgba(0,0,0,0.1)', // 🔹 slightly deeper shadow
+            backgroundColor: '#ffffff',
           }}
         >
           <Typography component="h1" variant="h5" sx={{ mb: 2, textAlign: 'center', fontWeight: 600 }}>
@@ -168,20 +179,63 @@ const Login = () => {
               error={!!formErrors.username}
               helperText={formErrors.username}
             />
+
+            {/* Password Field with Eye Icon */}
             <TextField
               margin="normal"
               required
               fullWidth
               name="password"
               label="Password"
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               id="password"
               autoComplete="current-password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               error={!!formErrors.password}
               helperText={formErrors.password}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      onClick={() => setShowPassword(!showPassword)}
+                      edge="end"
+                      aria-label="toggle password visibility"
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
             />
+
+            {/* Remember Me + Forgot Password */}
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                mt: 1,
+              }}
+            >
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={rememberMe}
+                    onChange={(e) => setRememberMe(e.target.checked)}
+                    color="primary"
+                  />
+                }
+                label="Remember Me"
+              />
+              <Link
+                href="#"
+                underline="hover"
+                sx={{ fontSize: '0.9rem', color: '#1976d2', fontWeight: 500 }}
+              >
+                Forgot Password?
+              </Link>
+            </Box>
 
             <Button
               type="submit"
