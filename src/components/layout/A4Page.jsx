@@ -104,7 +104,7 @@ const A4Page = ({
     )}
     {/* WATERMARK - HIGHLIGHT: background only, never overlaps content */}
     {watermarkImage && (
-        <Box
+        <Box 
           component="img"
           src={watermarkImage}
           alt="Watermark"
