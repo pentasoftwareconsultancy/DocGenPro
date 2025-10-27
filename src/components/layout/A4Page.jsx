@@ -13,7 +13,14 @@ const A4Page = ({
   contentTop = "44mm",   // Adjusted for finer vertical spacing!
   contentBottom = "28mm",
   company, // Add company prop for enhanced branding
-}) => (
+}) => { 
+  const watermarkImage =
+    watermarkSrc ||
+    company?.watermarkImage ||
+    company?.watermark ||
+    placeholderWatermark;
+  
+  return (
   <Box
     sx={{
       width: "210mm",          // A4 width for consistent sizing
@@ -96,25 +103,25 @@ const A4Page = ({
       />
     )}
     {/* WATERMARK - HIGHLIGHT: background only, never overlaps content */}
-    {(watermarkSrc || company?.watermark || company?.watermarkImage || placeholderWatermark) && (
-      <Box
-        component="img"
-        src={watermarkSrc || company?.watermark || company?.watermarkImage || placeholderWatermark}
-        alt="Watermark"
-        sx={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          width: "120mm",
-          height: "120mm",
-          transform: "translate(-50%, -50%)",
-          opacity: 0.27,
-          pointerEvents: "none",
-          userSelect: "none",
-          filter: company?.brandColors?.primary ? `hue-rotate(${company.brandColors.hueRotate || 0}deg)` : 'none',
-        }}
-      />
-    )}
+    {watermarkImage && (
+        <Box
+          component="img"
+          src={watermarkImage}
+          alt="Watermark"
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            width: "110mm",
+            height: "50mm",
+            transform: "translate(-50%, -50%)",
+            opacity: 0.60,   // ✅ better visibility behind content
+            pointerEvents: "none",
+            userSelect: "none",
+            zIndex: 0,       // ✅ ensures watermark stays behind text
+          }}
+        />
+      )}
     {/* CONTENT */}
     <Box
       sx={{
@@ -147,6 +154,7 @@ const A4Page = ({
       {children}
     </Box>
   </Box>
-);
+  );
+};
 
 export default A4Page;

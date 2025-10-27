@@ -44,7 +44,7 @@ const OfferLetterPage2 = ({ data, company }) => {
     <A4Page
       headerSrc={company?.headerImage || "/assets/jdit_header.png"}
       footerSrc={company?.footerImage || "/assets/jdit_footer.png"}
-      watermarkSrc={company?.watermarkImage || "/assets/jdit_watermark.png"}
+      watermarkSrc={company?.watermarkImage || company?.watermark || "/assets/jdit_watermark.png"}
       contentTop="48mm"
       contentBottom="28mm"
       company={company}
@@ -147,7 +147,7 @@ const OfferLetterPage2 = ({ data, company }) => {
               </TableRow>
             ))}
             {/* Totals Row */}
-            <TableRow sx={{ backgroundColor: "#e3f2fd" }}>
+            <TableRow sx={{ backgroundColor: "rgba(227, 242, 253, 0.7)", }}>
               <TableCell sx={{
                 fontWeight: "bold",
                 border: "2px solid #333",

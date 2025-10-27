@@ -43,7 +43,7 @@ const OfferLetterPage1 = ({ company, data }) => {
     <A4Page
       headerSrc={company.headerImage || "/assets/jdit_header.png"}
       footerSrc={company.footerImage || "/assets/jdit_footer.png"}
-      watermarkSrc={company.watermarkImage || "/assets/jdit_watermark.png"}
+      watermarkSrc={company.watermarkImage || company.watermark || "/assets/jdit_watermark.png"}
       contentTop="48mm"
       contentBottom="28mm"
       company={company}
@@ -76,7 +76,7 @@ const OfferLetterPage1 = ({ company, data }) => {
       </Typography>
 
       <Typography sx={{ textAlign: "justify", lineHeight: 1.6, mb: "6mm" }}>
-        We welcome you to <strong>Smart Software Services (I) Pvt. Ltd.</strong> Family and hope it would be the
+        We welcome you to <strong>{company.name}</strong> Family and hope it would be the
         beginning of a long and mutually beneficial association.
       </Typography>
 

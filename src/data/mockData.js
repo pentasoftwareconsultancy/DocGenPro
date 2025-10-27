@@ -3,7 +3,7 @@
 // Import JDIT Company Data images
 import jdit_header from "../assets/images/jdit/jdit-header.png"
 import jdit_footer from "../assets/images/jdit/jditFooter.png"
-import jdit_watermark from "../assets/images/jdit-watermark.svg"
+import jdit_watermark from "../assets/images/jdit/jdit_watermark.png"
 import jdit_signature from "../assets/images/jdit/jdit_sign.png"
 import jdit_stamp from "../assets/images/jdit/jdit_stamp.png"
 
