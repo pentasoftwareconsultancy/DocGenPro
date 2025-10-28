@@ -103,7 +103,7 @@ const RelievingLetterTemplate = ({ data, company }) => {
             }}
           />
           <Typography variant="body1" sx={{ fontSize: '12pt', lineHeight: 1.2 }}>
-            {data.signatoryName || 'Sandeep Patil'}
+            {company.hrName || 'Sandeep Patil'}
           </Typography>
           <Typography variant="body2" sx={{ fontSize: '11pt' }}>
             {data.signatoryDesignation || 'HR Manager - HR Shared Services'}
