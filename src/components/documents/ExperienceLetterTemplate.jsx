@@ -106,7 +106,7 @@ const ExperienceLetterTemplate = ({ data, company }) => {
             />
           )}
           <Typography sx={{ textAlign: "justify" }}>
-            <strong>Sandeep Patil</strong>
+            <strong>{company.hrName}</strong>
           </Typography>
           <Typography sx={{ textAlign: "justify" }}>
             <strong>HR Manager-HR Shared Services</strong>

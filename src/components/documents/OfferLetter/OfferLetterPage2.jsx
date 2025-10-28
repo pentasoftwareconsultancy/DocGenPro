@@ -209,7 +209,7 @@ const OfferLetterPage2 = ({ data, company }) => {
 
           {/* Names and designation below images */}
           <Box sx={{ mt: "2mm" }}>
-            <Typography sx={{ mb: "1mm" }}><strong>Sandeep Patil</strong></Typography>
+            <Typography sx={{ mb: "1mm" }}><strong>{company.hrName}</strong></Typography>
             <Typography><strong>HR Manager - HR Shared Services</strong></Typography>
           </Box>
         </Box>
