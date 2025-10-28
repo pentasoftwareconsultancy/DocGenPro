@@ -8,27 +8,28 @@ const ExperienceLetterTemplate = ({ data, company }) => {
   const formatDate = (dateString) => {
     if (!dateString) return '';
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-IN', {
-      day: '2-digit',
+    return date.toLocaleDateString('en-US', {
       month: 'long',
+      day: '2-digit',
       year: 'numeric'
     });
   };
 
+
   const calculateExperience = (startDate, endDate) => {
     if (!startDate || !endDate) return '';
-    
+
     const start = new Date(startDate);
     const end = new Date(endDate);
-    
+
     let years = end.getFullYear() - start.getFullYear();
     let months = end.getMonth() - start.getMonth();
-    
+
     if (months < 0) {
       years--;
       months += 12;
     }
-    
+
     if (years > 0 && months > 0) {
       return `${years} year${years > 1 ? 's' : ''} and ${months} month${months > 1 ? 's' : ''}`;
     } else if (years > 0) {
@@ -61,7 +62,7 @@ const ExperienceLetterTemplate = ({ data, company }) => {
       {/* Letter Body */}
       <Typography variant="body1" sx={{ mb: 3, textAlign: 'justify', lineHeight: 1.8 }}>
         It is certified that <strong>{data.employeeName}</strong> was under the employer of <strong>{company.name}</strong> as <strong>{data.designation}</strong> in {data.department} Department from <strong>{formatDate(data.joiningDate)}</strong> to
-        &nbsp;<strong>{formatDate(data.relievingDate)}</strong>. 
+        &nbsp;<strong>{formatDate(data.relievingDate)}</strong>.
       </Typography>
 
       <Typography variant="body1" sx={{ mb: 3, textAlign: 'justify', lineHeight: 1.8 }}>
@@ -92,7 +93,7 @@ const ExperienceLetterTemplate = ({ data, company }) => {
               }}
             />
           )}
-            {(company.stamp || placeholderStamp) && (
+          {(company.stamp || placeholderStamp) && (
             <Box
               component="img"
               src={company.stamp || placeholderStamp}
