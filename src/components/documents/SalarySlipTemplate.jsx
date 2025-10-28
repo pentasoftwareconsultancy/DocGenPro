@@ -52,6 +52,11 @@ const SalarySlipTemplate = ({ data, company }) => {
   const name = data.employeeName || "Anagha Arun Kapse";
   const empId = data.employeeId || "SSS2104";
   const doj = data.doj || "05/01/2021";
+  const gender = data.gender;
+  const pan = data.pan || "ABCDE1234F";
+  const dob = data.dob || "15/08/1995";
+  const bankMode = data.mode || "HDFC Bank";
+  const totalWorkdays = data.workdays || "30";
   const dept = data.department || "IT";
   const desg = data.designation || "Quality Analyst";
   const workingDays = data.workingDays || "30";
@@ -158,20 +163,36 @@ const SalarySlipTemplate = ({ data, company }) => {
             <TableRow>
               <TableCell sx={{ fontWeight: "bold" }}>Name</TableCell>
               <TableCell>{name}</TableCell>
-              <TableCell sx={{ fontWeight: "bold" }}>Employee ID</TableCell>
+              <TableCell>Employee ID</TableCell>
               <TableCell>{empId}</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell sx={{ fontWeight: "bold" }}>DOJ</TableCell>
-              <TableCell>{doj}</TableCell>
-              <TableCell sx={{ fontWeight: "bold" }}>Department</TableCell>
-              <TableCell>{dept}</TableCell>
+              <TableCell sx={{ fontWeight: "bold", borderBottom: "none !important", paddingY: 1 }}>
+                Gender
+              </TableCell>
+              <TableCell sx={{ borderBottom: "none !important", paddingY: 1 }}>{gender}</TableCell>
+              <TableCell sx={{ borderBottom: "none !important", paddingY: 1 }}>Department</TableCell>
+              <TableCell sx={{ borderBottom: "none !important", paddingY: 1 }}>{dept}</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell sx={{ fontWeight: "bold", borderTop: "none !important", paddingY: 1 }}>
+                DOJ
+              </TableCell>
+              <TableCell sx={{ borderTop: "none !important", paddingY: 1 }}>{doj}</TableCell>
+              <TableCell sx={{ borderTop: "none !important", paddingY: 1 }}>Pan Number</TableCell>
+              <TableCell sx={{ borderTop: "none !important", paddingY: 1 }}>{pan}</TableCell>
             </TableRow>
             <TableRow>
               <TableCell sx={{ fontWeight: "bold" }}>Designation</TableCell>
               <TableCell>{desg}</TableCell>
-              <TableCell sx={{ fontWeight: "bold" }}>Working Days</TableCell>
-              <TableCell>{workingDays}</TableCell>
+              <TableCell>DOB</TableCell>
+              <TableCell>{dob}</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell sx={{ fontWeight: "bold" }}>Mode</TableCell>
+              <TableCell>{doj}</TableCell>
+              <TableCell>Working days</TableCell>
+              <TableCell>{dept}</TableCell>
             </TableRow>
 
             {/* === SECTION HEADINGS === */}
@@ -194,20 +215,20 @@ const SalarySlipTemplate = ({ data, company }) => {
             <TableRow>
               <TableCell sx={{ fontWeight: "bold" }}>Basic Salary </TableCell>
               <TableCell align="right">{formatCurrency(basic)}</TableCell>
-              <TableCell sx={{ fontWeight: "bold" }}>PT</TableCell>
-              <TableCell align="right">{formatCurrency(pt)}</TableCell>
+              <TableCell></TableCell>
+              <TableCell></TableCell>
             </TableRow>
             <TableRow>
               <TableCell sx={{ fontWeight: "bold" }}>House Rent Allowance</TableCell>
               <TableCell align="right">{formatCurrency(hra)}</TableCell>
-              <TableCell sx={{ fontWeight: "bold" }}>Other Deduction</TableCell>
-              <TableCell align="right">{formatCurrency(otherDed)}</TableCell>
+              <TableCell>PT</TableCell>
+              <TableCell align="right">{formatCurrency(pt)}</TableCell>
             </TableRow>
             <TableRow>
               <TableCell sx={{ fontWeight: "bold" }}>Conveyance Allowance</TableCell>
               <TableCell align="right">{formatCurrency(conveyance)}</TableCell>
-              <TableCell></TableCell>
-              <TableCell></TableCell>
+              <TableCell>Other Deduction</TableCell>
+              <TableCell align="right">{formatCurrency(otherDed)}</TableCell>
             </TableRow>
             <TableRow>
               <TableCell sx={{ fontWeight: "bold" }}>Food Allowance</TableCell>
