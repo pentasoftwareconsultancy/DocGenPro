@@ -60,7 +60,7 @@ const ExperienceLetterTemplate = ({ data, company }) => {
 
       {/* Letter Body */}
       <Typography variant="body1" sx={{ mb: 3, textAlign: 'justify', lineHeight: 1.8 }}>
-        It is certified that <strong>{data.employeeName}</strong> was under the employer of <strong>{company.name}</strong> as <strong>{data.designation}</strong> in IT Department from <strong>{formatDate(data.joiningDate)}</strong> to
+        It is certified that <strong>{data.employeeName}</strong> was under the employer of <strong>{company.name}</strong> as <strong>{data.designation}</strong> in {data.department} Department from <strong>{formatDate(data.joiningDate)}</strong> to
         &nbsp;<strong>{formatDate(data.relievingDate)}</strong>. 
       </Typography>
 
