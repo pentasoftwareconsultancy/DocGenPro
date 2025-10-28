@@ -6,6 +6,8 @@ import jdit_footer from "../assets/images/jdit/jditFooter.png"
 import jdit_watermark from "../assets/images/jdit/jdit_watermark.png"
 import jdit_signature from "../assets/images/jdit/jdit_sign.png"
 import jdit_stamp from "../assets/images/jdit/jdit_stamp.png"
+import rp_header from "../assets/images/rp/RP header.png"
+import rp_footer from "../assets/images/rp/RP footer.png"
 
 
 
@@ -141,8 +143,8 @@ export const companies = [
         name: 'RP Business Solution LLP',
         shortName: 'RP Business',
         logo: '/logos/rpbusiness-logo.svg',
-        header: placeholderHeader,
-        footer: placeholderFooter,
+        header: rp_header,
+        footer: rp_footer,
         signature: placeholderSignature,
         stamp: placeholderStamp,
         watermark: placeholderWatermark,
@@ -325,6 +327,11 @@ export const documentTypes = [
             { name: 'month', label: 'Month', type: 'month', required: true },
             { name: 'totalSalary', label: 'Total Salary', type: 'number', required: true },
             { name: 'doj', label: 'Date of Joining', type: 'date', require: true },
+            { name: 'pan', label: 'PAN Card Number', type: 'text', required: true },
+            { name: 'gender', label: 'Gender', type: 'select', options: ['Male', 'Female', 'Other'], required: true },
+            { name: 'mode', label: 'Mode Bank', type: 'text', required: true },
+            { name: 'workdays', label: 'Total Workdays', type: 'number', required: true },
+            { name: 'dob', label: 'Date of Birth', type: 'date', required: true },
             // { name: 'basicSalary', label: 'Basic Salary', type: 'number', required: true },
             // { name: 'hra', label: 'HRA', type: 'number', required: true },
             // { name: 'conveyanceAllowance', label: 'Conveyance Allowance', type: 'number', required: true },
