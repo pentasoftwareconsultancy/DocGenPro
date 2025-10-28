@@ -54,10 +54,20 @@ const ExperienceLetterTemplate = ({ data, company }) => {
       <Typography sx={{ mb: "8mm" }}><strong>Ref:SMART\PUNHD\RMG01\Relieving-Letter\{data.employeeId}</strong></Typography>
       {/* Letter Header */}
       <Box sx={{ textAlign: 'center', mb: 4 }}>
-        <Typography variant="h5" className="company-accent" sx={{ fontWeight: 'bold', mb: 1 }}>
-          EXPERIENCE CERTIFICATE
+        <Typography
+          variant="h5"
+          sx={{
+            fontWeight: 'bold',
+            mb: 2,
+            color: 'black',
+            fontFamily: 'Verdana, sans-serif',
+            textDecoration: 'underline'
+          }}
+        >
+          Experience Certificate
         </Typography>
       </Box>
+
 
       {/* Letter Body */}
       <Typography variant="body1" sx={{ mb: 3, textAlign: 'justify', lineHeight: 1.8 }}>
