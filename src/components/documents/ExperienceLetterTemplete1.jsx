@@ -3,19 +3,8 @@ import { Box, Typography } from '@mui/material';
 import A4Page from '../layout/A4Page';
 import placeholderSignature from '../../assets/images/placeholder-signature.svg';
 import placeholderStamp from '../../assets/images/placeholder-stamp.svg';
-import ExperienceLetterTemplate1 from './ExperienceLetterTemplete1';
 
-const ExperienceLetterTemplate = ({ data, company }) => {
-  const template1Companies = [
-    "Penta Software Consultancy Services (I) Pvt Ltd",
-    "Quick Management Services",
-    "JDIT Software Solutions Pvt. Ltd."
-  ];
-
-  if (template1Companies.includes(company?.name)) {
-    return <ExperienceLetterTemplate1 data={data} company={company} />;
-  }
-
+const ExperienceLetterTemplate1 = ({ data, company }) => {
   const formatDate = (dateString) => {
     if (!dateString) return '';
     const date = new Date(dateString);
@@ -42,11 +31,11 @@ const ExperienceLetterTemplate = ({ data, company }) => {
     }
 
     if (years > 0 && months > 0) {
-      return `${years} year${years > 1 ? 's' : ''} and ${months} month${months > 1 ? 's' : ''}`;
+      return ${years} year${years > 1 ? 's' : ''} and ${months} month${months > 1 ? 's' : ''};
     } else if (years > 0) {
-      return `${years} year${years > 1 ? 's' : ''}`;
+      return ${years} year${years > 1 ? 's' : ''};
     } else if (months > 0) {
-      return `${months} month${months > 1 ? 's' : ''}`;
+      return ${months} month${months > 1 ? 's' : ''};
     } else {
       return 'Less than a month';
     }
@@ -62,7 +51,10 @@ const ExperienceLetterTemplate = ({ data, company }) => {
       company={company}
     >
       <Typography sx={{ textAlign: "end", mb: "8mm" }}>{formatDate(data.issueDate)}</Typography>
-      <Typography sx={{ mb: "8mm" }}><strong>Ref:SMART\PUNHD\RMG01\Relieving-Letter\{data.employeeId}</strong></Typography>
+      <Typography sx={{ mb: "8mm" }}><strong>
+
+        Ref:PENTA\PUN\RMG01\Exp-Letter\PSCS0807
+        {data.employeeId}</strong></Typography>
       {/* Letter Header */}
       <Box sx={{ textAlign: 'center', mb: 4 }}>
         <Typography
@@ -82,16 +74,17 @@ const ExperienceLetterTemplate = ({ data, company }) => {
 
       {/* Letter Body */}
       <Typography variant="body1" sx={{ mb: 3, textAlign: 'justify', lineHeight: 1.8 }}>
-        It is certified that <strong>{data.employeeName}</strong> was under the employer of <strong>{company.name}</strong> as <strong>{data.designation}</strong> in {data.department} Department from <strong>{formatDate(data.joiningDate)}</strong> to
+        It is certified that <strong>{data.employeeName}</strong> was in our employment from  <strong>{formatDate(data.joiningDate)}</strong> to
         &nbsp;<strong>{formatDate(data.relievingDate)}</strong>.
-      </Typography>
+     
+
+     
+        She was efficient and hardworking in this tenure. At the time of leaving the services of the company, She was designated as a <strong>{data.designation}</strong> 
+
+     </Typography>
 
       <Typography variant="body1" sx={{ mb: 3, textAlign: 'justify', lineHeight: 1.8 }}>
-        During her tenure we observe her obedient, honest and dedication in her work.
-      </Typography>
-
-      <Typography variant="body1" sx={{ mb: 3, textAlign: 'justify', lineHeight: 1.8 }}>
-        We wish her bright and good speed in her future endeavors.
+        We wish her success in her future career.
       </Typography>
 
       <Typography variant="body1" sx={{ mb: 1, mt: 18 }}>
@@ -139,4 +132,4 @@ const ExperienceLetterTemplate = ({ data, company }) => {
   );
 };
 
-export default ExperienceLetterTemplate;
+export default ExperienceLetterTemplate1;

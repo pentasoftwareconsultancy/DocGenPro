@@ -14,6 +14,7 @@ import { formatCurrency, getProfessionalTax } from "../../utils/salaryCalculatio
 import wattermark from "../../assets/images/SmartSoftware/Watermark.png";
 import stamp from "../../assets/images/SmartSoftware/Stamp.png";
 import sign from "../../assets/images/SmartSoftware/Sign.png";
+import JDITSalarySlipTemplate from "./JDITSalarySlipTemplate";
 
 /* 🔢 Utility — Convert number to words */
 const numberToWords = (num) => {
@@ -48,6 +49,10 @@ const numberToWords = (num) => {
 };
 
 const SalarySlipTemplate = ({ data, company }) => {
+  if(company?.name === "JDIT Software Solutions Pvt. Ltd.") {
+    return <JDITSalarySlipTemplate data={data} company={company} />;
+  }
+  
   // === Basic Info ===
   const name = data.employeeName || "Anagha Arun Kapse";
   const empId = data.employeeId || "SSS2104";
@@ -59,7 +64,6 @@ const SalarySlipTemplate = ({ data, company }) => {
   const totalWorkdays = data.workdays || "30";
   const dept = data.department || "IT";
   const desg = data.designation || "Quality Analyst";
-  const workingDays = data.workingDays || "30";
   // Convert "YYYY-MM" → "Month YY" (e.g. "2025-07" → "July 25")
   const month = (() => {
     if (!data.month) return "March 22"; // fallback
@@ -123,7 +127,7 @@ const SalarySlipTemplate = ({ data, company }) => {
         sx={{
           border: "1.5px solid black",
           borderRadius: 0,
-          mt: "20mm", // ✅ Customizable margin top
+          mt: "5mm", // ✅ Customizable margin top
           "& .MuiTableCell-root": {
             border: "1px solid black",
             fontSize: "11pt",
@@ -190,9 +194,9 @@ const SalarySlipTemplate = ({ data, company }) => {
             </TableRow>
             <TableRow>
               <TableCell sx={{ fontWeight: "bold" }}>Mode</TableCell>
-              <TableCell>{doj}</TableCell>
+              <TableCell>{bankMode}</TableCell>
               <TableCell>Working days</TableCell>
-              <TableCell>{dept}</TableCell>
+              <TableCell>{totalWorkdays}</TableCell>
             </TableRow>
 
             {/* === SECTION HEADINGS === */}
