@@ -31,11 +31,11 @@ const ExperienceLetterTemplate1 = ({ data, company }) => {
     }
 
     if (years > 0 && months > 0) {
-      return ${years} year${years > 1 ? 's' : ''} and ${months} month${months > 1 ? 's' : ''};
+      return `${years} year${years > 1 ? 's' : ''} and ${months} month${months > 1 ? 's' : ''}`;
     } else if (years > 0) {
-      return ${years} year${years > 1 ? 's' : ''};
+      return `${years} year${years > 1 ? 's' : ''}`;
     } else if (months > 0) {
-      return ${months} month${months > 1 ? 's' : ''};
+      return `${months} month${months > 1 ? 's' : ''}`;
     } else {
       return 'Less than a month';
     }
