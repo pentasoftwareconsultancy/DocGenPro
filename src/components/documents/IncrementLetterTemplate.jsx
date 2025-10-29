@@ -1,11 +1,16 @@
 import React from 'react';
 import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
+import CubeageIncrementLetter from "./CubeageIncrementLetter";
 import A4Page from '../layout/A4Page';
 import { calculateIncrement, formatCurrency, numberToWords } from '../../utils/salaryCalculations';
 import placeholderSignature from '../../assets/images/placeholder-signature.svg';
 import placeholderStamp from '../../assets/images/placeholder-stamp.svg';
 
 const IncrementLetterTemplate = ({ data, company }) => {
+  
+  if (company?.name === "Cubeage Technologies Services Pvt. Ltd.") {
+    return <CubeageIncrementLetter data={data} company={company} />;
+  }
 
   const newCTC = parseFloat(data.newCTC); // annual salary
   
