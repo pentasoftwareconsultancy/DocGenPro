@@ -1,38 +1,104 @@
 // Mock data for companies and document templates
 
+// smart imports
+import smart_header from '../assets/images/SmartSoftware/smartsoftware-header.png';
+import smartholderHeader from '../assets/images/SmartSoftware/smart-header.png';
+import smartholderFooter from '../assets/images/SmartSoftware/smart-footer.png';
+import smartholderWatermark from '../assets/images/SmartSoftware/Watermark.png';
+import smartholderSignature from '../assets/images/SmartSoftware/Sign.png';
+import smartholderStamp from '../assets/images/SmartSoftware/Stamp.png';
+
 // Import JDIT Company Data images
 import jdit_header from "../assets/images/jdit/jdit-header.png"
 import jdit_footer from "../assets/images/jdit/jditFooter.png"
 import jdit_watermark from "../assets/images/jdit/jdit_watermark.png"
 import jdit_signature from "../assets/images/jdit/jdit_sign.png"
 import jdit_stamp from "../assets/images/jdit/jdit_stamp.png"
-import rp_header from "../assets/images/rp/RP header.png"
-import rp_footer from "../assets/images/rp/RP footer.png"
+
+// rp imports  (watermark pending)
+import rp_header from "../assets/images/rp/RP_header.png"
+import rp_footer from "../assets/images/rp/RP_footer.png"
+import Rpbuisness_stamp from "../assets/images/rp/Rpbuisness_stamp.png"
+import Rpbuisness_signature from "../assets/images/rp/Rpbuisness_signature.png"
 
 
 
-import smart_header from '../assets/images/SmartSoftware/smartsoftware-header.png';
 
-// Import placeholder images
-import placeholderHeader from '../assets/images/SmartSoftware/smart-header.png';
-// import placeholderFooter from '../assets/images/placeholder-footer.svg';
-import placeholderFooter from '../assets/images/SmartSoftware/smart-footer.png';
-import placeholderWatermark from '../assets/images/SmartSoftware/Watermark.png';
-import placeholderSignature from '../assets/images/SmartSoftware/Sign.png';
-import placeholderStamp from '../assets/images/SmartSoftware/Stamp.png';
+
+
+// // Import placeholder images
+// import placeholderHeader from '../assets/images/SmartSoftware/smart-header.png';
+// // import placeholderFooter from '../assets/images/placeholder-footer.svg';
+// import placeholderFooter from '../assets/images/SmartSoftware/smart-footer.png';
+// import placeholderWatermark from '../assets/images/SmartSoftware/Watermark.png';
+// import placeholderSignature from '../assets/images/SmartSoftware/Sign.png';
+// import placeholderStamp from '../assets/images/SmartSoftware/Stamp.png';
+
+//Newage
+import Newage_header from "../assets/images/Newagecloud/Newageheader.png"
+import Newage_footer from "../assets/images/Newagecloud/Newagefooter.png" 
+import Newage_signature from "../assets/images/Newagecloud/Newage_signature.png" 
+import Newage_stamp from "../assets/images/Newagecloud/Newage_stamp.png"
+import Newage_watermark from "../assets/images/Newagecloud/Newage_watermark.png" 
+
+//cubeage(footer and watermark pending)
+import cubeage_header from "../assets/images/cubeagetechnology/cubeageheader.png" 
+import cubeage_signature from "../assets/images/cubeagetechnology/cubeage_signature.png"
+import cubeage_stamp from "../assets/images/cubeagetechnology/cubeage_stamp.png"
+
+//samrtmatrix (Header footer and watermark prnding)
+import smartmatrix_stamp from "../assets/images/smartmatrix/SmartMatrix_stamp.png"
+import smartmatrix_signature from "../assets/images/smartmatrix/smartmatrix_signature.png"
+
+//  Devcons (watermark pending)
+import devcons_header from "../assets/images/devconsSoftware/devcons_header.png" 
+import devcons_footer from "../assets/images/devconsSoftware/devcons_footer.png"
+import devcons_signature from "../assets/images/devconsSoftware/devcons_signature.png"
+import devcons_stamp from "../assets/images/devconsSoftware/devcons_stamp.png"
+
+//penta
+import Penta_header from "../assets/images/Penta/Penta_header.png" 
+import Penta_footer from "../assets/images/Penta/Penta_footer.png" 
+import Penta_signature from "../assets/images/Penta/Penta_sign.png" 
+import Penta_stamp from "../assets/images/Penta/Penta_stamp.png" 
+import Penta_watermark from "../assets/images/Penta/Penta_watermark.png" 
+
+//Nimbja( Watermark Pending)
+import Nimbja_header from "../assets/images/Nimbja/Nimbja_header.png" 
+import Nimbja_footer from "../assets/images/Nimbja/Nimbja_footer.png" 
+import Nimbja_signature from "../assets/images/Nimbja/Nimbja_signature.png" 
+import Nimbja_stamp from "../assets/images/Nimbja/Nimbja_stamp.png" 
+
+//QM  (Footer watermark Pending)
+  import QMS_Header from "../assets/images/QMS/QMS_Header.png" 
+  import QMS_Sign from "../assets/images/QMS/QMS_Sign.png" 
+  import QMS_Stamp from "../assets/images/QMS/QMS_Stamp.png" 
+
+
+
+
+
+
+
+
+
+
+
+
 
 export const companies = [
     {
+        // 
         id: 1,
         name: 'Cubeage Technologies Services Pvt. Ltd.',
         shortName: 'Cubeage Tech',
         logo: '/logos/cubeage-logo.svg',
-        header: placeholderHeader,
+        header: cubeage_header,
         footer: placeholderFooter,
-        signature: placeholderSignature,
-        stamp: placeholderStamp,
+        signature: cubeage_signature,
+        stamp: cubeage_stamp,
         watermark: placeholderWatermark,
-        headerImage: placeholderHeader,
+        headerImage: cubeage_header,
         footerImage: placeholderFooter,
         watermarkImage: placeholderWatermark,
         address: '123 Tech Park, Pune, Maharashtra 411001',
@@ -56,14 +122,14 @@ export const companies = [
         name: 'Neweage Cloud Solution Pvt. Ltd.',
         shortName: 'Neweage Cloud',
         logo: '/logos/neweage-logo.svg',
-        header: placeholderHeader,
-        footer: placeholderFooter,
-        signature: placeholderSignature,
-        stamp: placeholderStamp,
-        watermark: placeholderWatermark,
-        headerImage: placeholderHeader,
-        footerImage: placeholderFooter,
-        watermarkImage: placeholderWatermark,
+        header: Newage_header,
+        footer: Newage_footer,
+        signature: Newage_signature,
+        stamp: Newage_stamp,
+        watermark: Newage_watermark,
+        headerImage: Newage_header,
+        footerImage: Newage_footer,
+        watermarkImage: Newage_watermark,
         address: '456 Innovation Hub, Mumbai, Maharashtra 400001',
         email: 'contact@neweagecloud.com',
         phone: '+91 022-23456789',
@@ -87,8 +153,8 @@ export const companies = [
         logo: '/logos/smartmatrix-logo.svg',
         header: placeholderHeader,
         footer: placeholderFooter,
-        signature: placeholderSignature,
-        stamp: placeholderStamp,
+        signature: smartmatrix_signature,
+        stamp:smartmatrix_stamp,
         watermark: placeholderWatermark,
         headerImage: placeholderHeader,
         footerImage: placeholderFooter,
@@ -114,13 +180,13 @@ export const companies = [
         name: 'Devcons Software Solution Pvt. Ltd.',
         shortName: 'Devcons',
         logo: '/logos/devcons-logo.svg',
-        header: placeholderHeader,
-        footer: placeholderFooter,
-        signature: placeholderSignature,
-        stamp: placeholderStamp,
+        header: devcons_header,
+        footer: devcons_footer,
+        signature: devcons_signature,
+        stamp: devcons_stamp,
         watermark: placeholderWatermark,
-        headerImage: placeholderHeader,
-        footerImage: placeholderFooter,
+        headerImage: devcons_header,
+        footerImage: devcons_footer,
         watermarkImage: placeholderWatermark,
         address: '101 Developer Avenue, Hyderabad, Telangana 500001',
         email: 'info@devconssoftware.com',
@@ -145,11 +211,11 @@ export const companies = [
         logo: '/logos/rpbusiness-logo.svg',
         header: rp_header,
         footer: rp_footer,
-        signature: placeholderSignature,
-        stamp: placeholderStamp,
+        signature: Rpbuisness_signature,
+        stamp: Rpbuisness_stamp,
         watermark: placeholderWatermark,
-        headerImage: placeholderHeader,
-        footerImage: placeholderFooter,
+        headerImage: rp_header,
+        footerImage: rp_footer,
         watermarkImage: placeholderWatermark,
         address: '202 Business Park, Chennai, Tamil Nadu 600001',
         email: 'contact@rpbusinesssolution.com',
@@ -172,14 +238,14 @@ export const companies = [
         name: 'Penta Software Consultancy Services (I) Pvt Ltd',
         shortName: 'Penta Software',
         logo: '/logos/pentasoftware-logo.svg',
-        header: placeholderHeader,
-        footer: placeholderFooter,
-        signature: placeholderSignature,
-        stamp: placeholderStamp,
-        watermark: placeholderWatermark,
-        headerImage: placeholderHeader,
-        footerImage: placeholderFooter,
-        watermarkImage: placeholderWatermark,
+        header: Penta_header,
+        footer: Penta_footer,
+        signature: Penta_signature,
+        stamp: Penta_stamp,
+        watermark: Penta_watermark,
+        headerImage: Penta_header,
+        footerImage: Penta_footer,
+        watermarkImage: Penta_watermark,
         address: '303 Penta Tower, Kolkata, West Bengal 700001',
         email: 'info@pentasoftware.com',
         phone: '+91 033-67890123',
@@ -201,13 +267,13 @@ export const companies = [
         name: 'Nimbja Security Solutions Pvt. Ltd.',
         shortName: 'Nimbja Security',
         logo: '/logos/nimbja-logo.svg',
-        header: placeholderHeader,
-        footer: placeholderFooter,
-        signature: placeholderSignature,
-        stamp: placeholderStamp,
+        header: Nimbja_header,
+        footer: Nimbja_footer,
+        signature: Nimbja_signature,
+        stamp: Nimbja_stamp,
         watermark: placeholderWatermark,
-        headerImage: placeholderHeader,
-        footerImage: placeholderFooter,
+        headerImage: Nimbja_header,
+        footerImage: Nimbja_footer,
         watermarkImage: placeholderWatermark,
         address: '404 Security Street, Ahmedabad, Gujarat 380001',
         email: 'hello@nimbjasecurity.com',
@@ -259,12 +325,12 @@ export const companies = [
         name: 'Quick Management Services',
         shortName: 'Quick Management',
         logo: '/logos/quickmanagement-logo.svg',
-        header: placeholderHeader,
+        header: QMS_Header,
         footer: placeholderFooter,
-        signature: placeholderSignature,
-        stamp: placeholderStamp,
+        signature: QMS_Sign,
+        stamp: QMS_Stamp,
         watermark: placeholderWatermark,
-        headerImage: placeholderHeader,
+        headerImage: QMS_Header,
         footerImage: placeholderFooter,
         watermarkImage: placeholderWatermark,
         address: '606 Management Road, Jaipur, Rajasthan 302001',
@@ -289,13 +355,13 @@ export const companies = [
         shortName: 'Smart Software',
         logo: 'logos/SmartSoftwareServicesLogo.png',
         header: smart_header,
-        footer: placeholderFooter,
-        signature: placeholderSignature,
-        stamp: placeholderStamp,
-        watermark: placeholderWatermark,
-        headerImage: placeholderHeader,
-        footerImage: placeholderFooter,
-        watermarkImage: placeholderWatermark,
+        footer: smartholderFooter,
+        signature: smartholderSignature,
+        stamp: smartholderStamp,
+        watermark: smartholderWatermark,
+        headerImage: smartholderHeader,
+        footerImage: smartholderFooter,
+        watermarkImage: smartholderWatermark,
         address: '406 Changbhale Heights, Near Kalpataru Estate Phase III, Pimple Gurav, Pune 411061',
         email: 'hello@smartsoftwareservices.com',
         phone: '+91 0731-90123456',
@@ -320,6 +386,7 @@ export const documentTypes = [
         name: 'Salary Slip',
         template: 'salary-slip',
         fields: [
+            { name: 'mrms', label: 'Select Title', type: 'select', options: ['Mr.', 'Mrs.', 'Miss.', 'Mx.'], required: true },
             { name: 'employeeName', label: 'Employee Name', type: 'text', required: true },
             { name: 'employeeId', label: 'Employee ID', type: 'text', required: true },
             { name: 'designation', label: 'Designation', type: 'text', required: true },
@@ -347,6 +414,7 @@ export const documentTypes = [
         name: 'Offer Letter',
         template: 'offer-letter',
         fields: [
+            { name: 'mrms', label: 'Select Title', type: 'select', options: ['Mr.', 'Mrs.', 'Miss.', 'Mx.'], required: true },
             { name: 'candidateName', label: 'Candidate Name', type: 'text', required: true },
             { name: 'address', label: 'Address', type: 'textarea', required: false },
             { name: 'position', label: 'Position', type: 'text', required: true },
@@ -370,6 +438,7 @@ export const documentTypes = [
         name: 'Appointment Letter',
         template: 'appointment-letter',
         fields: [
+            { name: 'mrms', label: 'Select Title', type: 'select', options: ['Mr.', 'Mrs.', 'Miss.', 'Mx.'], required: true },
             { name: 'employeeName', label: 'Employee Name', type: 'text', required: true },
             { name: 'address', label: 'Address', type: 'textarea', required: true },
             { name: 'position', label: 'Position', type: 'text', required: true },
@@ -388,6 +457,7 @@ export const documentTypes = [
         name: 'Experience Letter',
         template: 'experience-letter',
         fields: [
+            { name: 'mrms', label: 'Select Title', type: 'select', options: ['Mr.', 'Mrs.', 'Miss.', 'Mx.'], required: true },
             { name: 'employeeName', label: 'Employee Name', type: 'text', required: true },
             { name: 'employeeId', label: 'Employee ID', type: 'text', required: true },
             { name: 'designation', label: 'Designation', type: 'text', required: true },
@@ -404,6 +474,7 @@ export const documentTypes = [
         name: 'Relieving Letter',
         template: 'relieving-letter',
         fields: [
+            { name: 'mrms', label: 'Select Title', type: 'select', options: ['Mr.', 'Mrs.', 'Miss.', 'Mx.'], required: true },
             { name: 'employeeName', label: 'Employee Name', type: 'text', required: true },
             { name: 'employeeId', label: 'Employee ID', type: 'text', required: true },
             { name: 'designation', label: 'Designation', type: 'text', required: true },
@@ -420,6 +491,7 @@ export const documentTypes = [
         name: 'Employment Verification Letter',
         template: 'employment-verification',
         fields: [
+            { name: 'mrms', label: 'Select Title', type: 'select', options: ['Mr.', 'Mrs.', 'Miss.', 'Mx.'], required: true },
             { name: 'employeeName', label: 'Employee Name', type: 'text', required: true },
             { name: 'employeeId', label: 'Employee ID', type: 'text', required: true },
             { name: 'designation', label: 'Designation', type: 'text', required: true },
@@ -438,6 +510,7 @@ export const documentTypes = [
         name: 'Increment Letter',
         template: 'increment-letter',
         fields: [
+            { name: 'mrms', label: 'Select Title', type: 'select', options: ['Mr.', 'Mrs.', 'Miss.', 'Mx.'], required: true },
             { name: 'employeeName', label: 'Employee Name', type: 'text', required: true },
             { name: 'employeeId', label: 'Employee ID', type: 'text', required: true },
             { name: 'designation', label: 'Designation', type: 'text', required: true },
@@ -462,6 +535,7 @@ export const documentTypes = [
         name: 'Promotion Letter',
         template: 'promotion-letter',
         fields: [
+            { name: 'mrms', label: 'Select Title', type: 'select', options: ['Mr.', 'Mrs.', 'Miss.', 'Mx.'], required: true },
             { name: 'employeeName', label: 'Employee Name', type: 'text', required: true },
             { name: 'employeeId', label: 'Employee ID', type: 'text', required: true },
             { name: 'currentDesignation', label: 'Current Designation', type: 'text', required: true },
@@ -481,6 +555,7 @@ export const documentTypes = [
         name: 'Warning Letter',
         template: 'warning-letter',
         fields: [
+            { name: 'mrms', label: 'Select Title', type: 'select', options: ['Mr.', 'Mrs.', 'Miss.', 'Mx.'], required: true },
             { name: 'employeeName', label: 'Employee Name', type: 'text', required: true },
             { name: 'employeeId', label: 'Employee ID', type: 'text', required: true },
             { name: 'designation', label: 'Designation', type: 'text', required: true },
@@ -499,6 +574,7 @@ export const documentTypes = [
         name: 'No Objection Certificate (NOC)',
         template: 'noc-letter',
         fields: [
+            { name: 'mrms', label: 'Select Title', type: 'select', options: ['Mr.', 'Mrs.', 'Miss.', 'Mx.'], required: true },
             { name: 'employeeName', label: 'Employee Name', type: 'text', required: true },
             { name: 'employeeId', label: 'Employee ID', type: 'text', required: true },
             { name: 'designation', label: 'Designation', type: 'text', required: true },
@@ -516,6 +592,7 @@ export const documentTypes = [
         name: 'Internship Certificate',
         template: 'internship-certificate',
         fields: [
+            { name: 'mrms', label: 'Select Title', type: 'select', options: ['Mr.', 'Mrs.', 'Miss.', 'Mx.'], required: true },
             { name: 'internName', label: 'Intern Name', type: 'text', required: true },
             { name: 'internshipPeriod', label: 'Internship Period', type: 'text', required: true },
             { name: 'startDate', label: 'Start Date', type: 'date', required: true },
@@ -533,6 +610,7 @@ export const documentTypes = [
         name: 'Completion Certificate',
         template: 'completion-certificate',
         fields: [
+            { name: 'mrms', label: 'Select Title', type: 'select', options: ['Mr.', 'Mrs.', 'Miss.', 'Mx.'], required: true },
             { name: 'employeeName', label: 'Employee Name', type: 'text', required: true },
             { name: 'employeeId', label: 'Employee ID', type: 'text', required: true },
             { name: 'projectName', label: 'Project Name', type: 'text', required: true },
@@ -550,6 +628,7 @@ export const documentTypes = [
         name: 'Salary Transaction Certificate',
         template: 'salary-transaction',
         fields: [
+            { name: 'mrms', label: 'Select Title', type: 'select', options: ['Mr.', 'Mrs.', 'Miss.', 'Mx.'], required: true },
             { name: 'employeeName', label: 'Employee Name', type: 'text', required: true },
             { name: 'employeeId', label: 'Employee ID', type: 'text', required: true },
             { name: 'designation', label: 'Designation', type: 'text', required: true },
@@ -568,6 +647,7 @@ export const documentTypes = [
         name: 'Termination Letter',
         template: 'termination-letter',
         fields: [
+            { name: 'mrms', label: 'Select Title', type: 'select', options: ['Mr.', 'Mrs.', 'Miss.', 'Mx.'], required: true },
             { name: 'employeeName', label: 'Employee Name', type: 'text', required: true },
             { name: 'employeeId', label: 'Employee ID', type: 'text', required: true },
             { name: 'designation', label: 'Designation', type: 'text', required: true },
@@ -586,6 +666,7 @@ export const documentTypes = [
         name: 'Transfer Letter',
         template: 'transfer-letter',
         fields: [
+            { name: 'mrms', label: 'Select Title', type: 'select', options: ['Mr.', 'Mrs.', 'Miss.', 'Mx.'], required: true },
             { name: 'employeeName', label: 'Employee Name', type: 'text', required: true },
             { name: 'employeeId', label: 'Employee ID', type: 'text', required: true },
             { name: 'currentDesignation', label: 'Current Designation', type: 'text', required: true },
