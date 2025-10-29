@@ -49,7 +49,7 @@ const ExperienceLetterTemplate1 = ({ data, company }) => {
       watermarkSrc={company.watermark || company.watermarkImage}
       contentTop="48mm"
       contentBottom="28mm"
-      company={company}
+      company={company} 
     >
       <Typography sx={{ textAlign: "end", mb: "8mm" }}>
         {formatDate(data.issueDate)}
