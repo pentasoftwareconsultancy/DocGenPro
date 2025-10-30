@@ -116,7 +116,7 @@ const OfferLetterPage2 = ({ data, company }) => {
           </TableHead>
           <TableBody>
             {salaryComponents.map((row, i) => (
-              <TableRow key={i} sx={{ '&:nth-of-type(even)': { backgroundColor: '#f9f9f9' } }}>
+              <TableRow key={i}>
                 <TableCell sx={{
                   border: "1px solid #333",
                   fontSize: "11pt",
@@ -215,7 +215,7 @@ const OfferLetterPage2 = ({ data, company }) => {
         </Box>
         <Box>
           <Typography sx={{ mb: "1mm" }}>Signature : ________________________</Typography>
-          <Typography>Candidate Name : {data.candidateName}</Typography>
+          <Typography>Candidate Name : {data.mrms} {data.candidateName}</Typography>
         </Box>
       </Box>
     </A4Page>

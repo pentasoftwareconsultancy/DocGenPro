@@ -48,7 +48,7 @@ const RelievingLetterTemplate = ({ data, company }) => {
       {/* Employee Info */}
       <Box sx={{ mb: 3, px: 4, position: 'relative', zIndex: 1 }}>
         <Typography variant="body1" sx={{ mb: 1, fontSize: '12pt' }}>
-          <strong>{data.employeeName || 'Ms. Anagha Arun Kapse'}</strong>
+          <strong>{data.mrms} {data.employeeName || 'Ms. Anagha Arun Kapse'}</strong>
         </Typography>
         <Typography variant="body1" sx={{ mb: 1, fontSize: '12pt' }}>
           <strong>{data.designation || 'Quality Analyst'}</strong>
