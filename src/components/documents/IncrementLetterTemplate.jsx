@@ -155,7 +155,7 @@ const IncrementLetterTemplate = ({ data, company }) => {
       >
         <Typography sx={{ mb: 6, textAlign: "center" }}>Salary Annexure</Typography>
         <Typography sx={{ marginLeft: "3mm" }}>Employee Code : {data.employeeId}</Typography>
-        <Typography sx={{ marginLeft: "3mm" }}>Employee Name : {data.employeeName}</Typography>
+        <Typography sx={{ marginLeft: "3mm" }}>Employee Name : {data.mrms} {data.employeeName}</Typography>
         <Typography sx={{ mb: 3, marginLeft: "3mm" }}>Effective Date :  {formatDate(data.effectiveDate)}</Typography>
 
         {/* Salary Comparison Table */}

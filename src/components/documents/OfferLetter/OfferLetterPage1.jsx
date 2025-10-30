@@ -52,7 +52,7 @@ const OfferLetterPage1 = ({ company, data }) => {
       <Typography sx={{ mb: "10mm", textAlign: "right" }}>{offerDate}</Typography>
 
       {/* Candidate Details */}
-      <Typography sx={{ mb: "3mm" }}>Name : {data.candidateName}</Typography>
+      <Typography sx={{ mb: "3mm" }}>Name : {data.mrms} {data.candidateName}</Typography>
       <Typography sx={{ mb: "6mm" }}>Position : {position}</Typography>
 
       {/* Body of the Letter */}
