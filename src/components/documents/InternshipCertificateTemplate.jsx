@@ -10,44 +10,54 @@ const InternshipCertificateTemplate = ({ data, company }) => {
     const date = new Date(dateStr);
     return date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
   };
+  
+  const heshe = () => {
+    if (data.mrms === "Mr.") return "He";
+    if (data.mrms === "Mrs." || data.mrms === "Miss.") return "She";
+    if (data.mrms === "Mx.") return "They";
+    return "They"; // default fallback
+  };
+
+  const hisher = () => {
+    const pronoun = heshe();
+    if (pronoun === "He") return "his";
+    if (pronoun === "She") return "her";
+    if (pronoun === "They") return "their";
+    return "their";
+  };
+
+  const himher = () => {
+    const pronoun = heshe();
+    if (pronoun === "He") return "him";
+    if (pronoun === "She") return "her";
+    if (pronoun === "They") return "them";
+    return "them";
+  };
 
   return (
     <A4Page
       headerSrc={company.headerImage}
       footerSrc={company.footerImage}
       watermarkSrc={company.watermarkImage}
-      contentTop="44mm"
+      contentTop="40mm"
       contentBottom="28mm"
       company={company}
     >
-      {/* HIGHLIGHT: No header/footer/watermark images shown here! Only A4Page handles them */}
-
-      <Divider sx={{ mb: 5, borderColor: "#ddd" }} />
 
       <Typography
         variant="h4"
         align="center"
         className="company-accent"
         sx={{
-          mb: 4,
+          mt: 14,
+          mb: 8,
           fontWeight: "bold",
           textTransform: "uppercase",
-          color: "#333",
           letterSpacing: 2,
         }}
       >
-        Internship Certificate
+        LETTER OF INTERNSHIP
       </Typography>
-
-      <Box sx={{ display: "flex", justifyContent: "space-between", mb: 5 }}>
-        <Typography variant="body2" className="company-secondary" sx={{ color: "#555" }}>
-          Certificate No: INT-{new Date().getFullYear()}-
-          {String(data.id || Math.floor(Math.random() * 1000)).padStart(3, "0")}
-        </Typography>
-        <Typography variant="body2" className="company-secondary" sx={{ color: "#555" }}>
-          Date: {formatDate(data.issueDate)}
-        </Typography>
-      </Box>
 
       <Box
         sx={{
@@ -59,16 +69,10 @@ const InternshipCertificateTemplate = ({ data, company }) => {
         }}
       >
         <Typography paragraph>
-          This is to certify that <strong>{data.internName}</strong> has successfully completed {data.internshipPeriod} of internship at <strong>{company.name}</strong> from <strong>{formatDate(data.startDate)}</strong> to <strong>{formatDate(data.endDate)}</strong> in the <strong>{data.department}</strong> department.
+          This is to certify that <strong>{data.mrms} {data.internName}</strong> has done {hisher()} internship at <strong>{company.name}</strong> From <strong>{formatDate(data.startDate)} - {formatDate(data.endDate)}.</strong> {heshe()} was designated as <strong>{data.field}.</strong>
         </Typography>
-        <Typography paragraph>
-          During the internship period, {data.internName} worked on the project titled <strong>"{data.projectName}"</strong> and acquired skills in <strong>{data.skills}</strong>.
-        </Typography>
-        <Typography paragraph>
-          Throughout the internship, {data.internName} demonstrated <strong>{data.performance}</strong> performance, a strong work ethic, and the ability to learn and apply new concepts quickly. {data.internName} was a valuable member of our team and made significant contributions to the project.
-        </Typography>
-        <Typography>
-          We wish {data.internName} all the best for future endeavors.
+        <Typography sx={{ mt: 5 }}>
+          During the internship, {heshe()} has demonstrated {hisher()} skills with self-motivation to learn new skills. {himher().charAt(0).toUpperCase() + hisher().slice(1)} performance exceeded our expectations and {heshe().toLowerCase()} was able to complete the given tasks on time. We wish {himher()} all the best for {hisher()} upcoming career.
         </Typography>
       </Box>
 
@@ -76,13 +80,17 @@ const InternshipCertificateTemplate = ({ data, company }) => {
       <Box
         sx={{
           display: "flex",
-          justifyContent: "flex-end",
+          justifyContent: "space-between",
           alignItems: "flex-end",
           mt: 10,
           gap: 5,
         }}
       >
-        <Box sx={{ textAlign: "center", mr: 3 }}>
+        <Box sx={{ textAlign: "justify" }}>
+          <Typography variant="body2" sx={{ color: "#555", fontWeight: "bold", mb: 5 }}>
+            {company.name}
+          </Typography>
+          <Box sx={{ display: "flex" }}>
           <img
             src={company.signature || placeholderSignature}
             alt="HR Signature"
@@ -93,15 +101,7 @@ const InternshipCertificateTemplate = ({ data, company }) => {
               marginBottom: 4,
               display: "block",
             }}
-          />
-          <Typography variant="body2" sx={{ color: "#555" }}>
-            HR Manager
-          </Typography>
-          <Typography variant="body2" sx={{ color: "#555" }}>
-            {company.name}
-          </Typography>
-        </Box>
-        <Box sx={{ textAlign: "center" }}>
+            />
           <img
             src={company.stamp || placeholderStamp}
             alt="Company Stamp"
@@ -113,7 +113,22 @@ const InternshipCertificateTemplate = ({ data, company }) => {
               background: "#f9f9f9",
               display: "block",
             }}
-          />
+            />
+          </Box>
+          <Typography>
+            {company.hrName}
+          </Typography>
+          <Typography variant="body2" sx={{ color: "#555" }}>
+            HR Department Pune
+          </Typography>
+        </Box>
+        <Box sx={{ textAlign: "justify" }}>
+          <Typography>
+            Signature: ______________________
+          </Typography>
+          <Typography>
+            Candidate Name: <strong>{data.mrms} {data.internName}</strong>
+          </Typography>
         </Box>
       </Box>
     </A4Page>
