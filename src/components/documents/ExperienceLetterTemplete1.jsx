@@ -42,14 +42,37 @@ const ExperienceLetterTemplate1 = ({ data, company }) => {
     }
   };
 
+  const heshe = () => {
+    if (data.mrms === "Mr.") return "He";
+    if (data.mrms === "Mrs." || data.mrms === "Miss.") return "She";
+    if (data.mrms === "Mx.") return "They";
+    return "They"; // default fallback
+  };
+
+  const hisher = () => {
+    const pronoun = heshe();
+    if (pronoun === "He") return "his";
+    if (pronoun === "She") return "her";
+    if (pronoun === "They") return "their";
+    return "their";
+  };
+
+  const himher = () => {
+    const pronoun = heshe();
+    if (pronoun === "He") return "him";
+    if (pronoun === "She") return "her";
+    if (pronoun === "They") return "them";
+    return "them";
+  };
+
   return (
     <A4Page
       headerSrc={company.header || company.headerImage}
       footerSrc={company.footer || company.footerImage}
       watermarkSrc={company.watermark || company.watermarkImage}
-      contentTop="48mm"
+      contentTop="65mm"
       contentBottom="28mm"
-      company={company} 
+      company={company}
     >
       <Typography sx={{ textAlign: "end", mb: "8mm" }}>
         {formatDate(data.issueDate)}
@@ -81,21 +104,26 @@ const ExperienceLetterTemplate1 = ({ data, company }) => {
         variant="body1"
         sx={{ mb: 3, textAlign: "justify", lineHeight: 1.8 }}
       >
-        This is certified that <strong>{data.employeeName}</strong> was in our
-        employment from <strong>{formatDate(data.joiningDate)}</strong> to
-        <strong>{formatDate(data.relievingDate)}</strong>. She was efficient and
-        hardworking in this tenure. At the time of leaving the services of the
-        company, She was designated as a <strong>{data.designation}.</strong>
+        This is certified that{" "}
+        <strong>
+          {data.mrms} {data.employeeName}
+        </strong>{" "}
+        was in our employment from{" "}
+        <strong>{formatDate(data.joiningDate)}</strong> to{" "}
+        <strong>{formatDate(data.relievingDate)}</strong>. {heshe()} was
+        efficient and hardworking in this tenure. At the time of leaving the
+        services of the company, {heshe()} was designated as a{" "}
+        <strong>{data.designation}.</strong>
       </Typography>
 
       <Typography
         variant="body1"
         sx={{ mb: 3, textAlign: "justify", lineHeight: 1.8 }}
       >
-        We wish her success in her future career.
+        We wish {himher()} success in {hisher()} future career.
       </Typography>
 
-      <Typography variant="body1" sx={{ mb: 1, mt: 18 }}>
+      <Typography variant="body1" sx={{ mb: 1, mt: 10 }}>
         For <strong>{company.name || "[Company Name]"}</strong>
       </Typography>
 

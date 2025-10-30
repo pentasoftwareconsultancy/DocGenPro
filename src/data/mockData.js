@@ -31,8 +31,8 @@ import placeholderHeader from '../assets/images/SmartSoftware/smart-header.png';
 // import placeholderFooter from '../assets/images/placeholder-footer.svg';
 import placeholderFooter from '../assets/images/SmartSoftware/smart-footer.png';
 import placeholderWatermark from '../assets/images/SmartSoftware/Watermark.png';
-import placeholderSignature from '../assets/images/SmartSoftware/Sign.png';
-import placeholderStamp from '../assets/images/SmartSoftware/Stamp.png';
+// import placeholderSignature from '../assets/images/SmartSoftware/Sign.png';
+// import placeholderStamp from '../assets/images/SmartSoftware/Stamp.png';
 
 //Newage
 import Newage_header from "../assets/images/Newagecloud/Newageheader.png"
@@ -46,11 +46,9 @@ import cubeage_header from "../assets/images/cubeagetechnology/cubeageheader.png
 import cubeage_signature from "../assets/images/cubeagetechnology/cubeage_signature.png"
 import cubeage_stamp from "../assets/images/cubeagetechnology/cubeage_stamp.png"
 
-//samrtmatrix (Header footer   prnding)
+//samrtmatrix (Header footer and watermark prnding)
 import smartmatrix_stamp from "../assets/images/smartmatrix/SmartMatrix_stamp.png"
 import smartmatrix_signature from "../assets/images/smartmatrix/smartmatrix_signature.png"
-import smartmatrix_watermark from "../assets/images/smartmatrix/Smartmatrix_watermark.png"
-
 
 //  Devcons (watermark pending)
 import devcons_header from "../assets/images/devconsSoftware/devcons_header.png" 
@@ -157,10 +155,10 @@ export const companies = [
         footer: placeholderFooter,
         signature: smartmatrix_signature,
         stamp:smartmatrix_stamp,
-        watermark: smartmatrix_watermark,
+        watermark: placeholderWatermark,
         headerImage: placeholderHeader,
         footerImage: placeholderFooter,
-        watermarkImage: smartmatrix_watermark,
+        watermarkImage: placeholderWatermark,
         address: '789 Matrix Building, Bangalore, Karnataka 560001',
         email: 'hello@smartmatrixdigital.com',
         phone: '+91 080-34567890',
@@ -596,14 +594,13 @@ export const documentTypes = [
         fields: [
             { name: 'mrms', label: 'Select Title', type: 'select', options: ['Mr.', 'Mrs.', 'Miss.', 'Mx.'], required: true },
             { name: 'internName', label: 'Intern Name', type: 'text', required: true },
-            { name: 'internshipPeriod', label: 'Internship Period', type: 'text', required: true },
+            { name: 'field', label: 'Field of Study', type: 'text', required: true },
             { name: 'startDate', label: 'Start Date', type: 'date', required: true },
             { name: 'endDate', label: 'End Date', type: 'date', required: true },
-            { name: 'department', label: 'Department', type: 'text', required: true },
-            { name: 'projectName', label: 'Project Name', type: 'text', required: true },
-            { name: 'skills', label: 'Skills Acquired', type: 'textarea', required: true },
-            { name: 'performance', label: 'Performance', type: 'select', options: ['Excellent', 'Very Good', 'Good', 'Satisfactory'], required: true },
-            { name: 'mentorName', label: 'Mentor Name', type: 'text', required: false },
+            // { name: 'department', label: 'Department', type: 'text', required: true },
+            // { name: 'projectName', label: 'Project Name', type: 'text', required: true },
+            // { name: 'performance', label: 'Performance', type: 'select', options: ['Excellent', 'Very Good', 'Good', 'Satisfactory'], required: true },
+            // { name: 'mentorName', label: 'Mentor Name', type: 'text', required: false },
             { name: 'issueDate', label: 'Issue Date', type: 'date', required: true }
         ]
     },

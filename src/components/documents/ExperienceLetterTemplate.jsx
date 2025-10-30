@@ -30,6 +30,29 @@ const ExperienceLetterTemplate = ({ data, company }) => {
       year: "numeric",
     });
   };
+  
+  const heshe = () => {
+    if (data.mrms === "Mr.") return "He";
+    if (data.mrms === "Mrs." || data.mrms === "Miss.") return "She";
+    if (data.mrms === "Mx.") return "They";
+    return "They"; // default fallback
+  };
+
+  const hisher = () => {
+    const pronoun = heshe();
+    if (pronoun === "He") return "his";
+    if (pronoun === "She") return "her";
+    if (pronoun === "They") return "their";
+    return "their";
+  };
+
+  const himher = () => {
+    const pronoun = heshe();
+    if (pronoun === "He") return "him";
+    if (pronoun === "She") return "her";
+    if (pronoun === "They") return "them";
+    return "them";
+  };
 
   const calculateExperience = (startDate, endDate) => {
     if (!startDate || !endDate) return "";
@@ -63,7 +86,7 @@ const ExperienceLetterTemplate = ({ data, company }) => {
       headerSrc={company.header || company.headerImage}
       footerSrc={company.footer || company.footerImage}
       watermarkSrc={company.watermark || company.watermarkImage}
-      contentTop="48mm"
+      contentTop="60mm"
       contentBottom="28mm"
       company={company}
     >
@@ -96,7 +119,7 @@ const ExperienceLetterTemplate = ({ data, company }) => {
         variant="body1"
         sx={{ mb: 3, textAlign: "justify", lineHeight: 1.8 }}
       >
-        It is certified that <strong>{data.employeeName}</strong> was under the
+        It is certified that <strong>{data.mrms} {data.employeeName}</strong> was under the
         employer of <strong>{company.name}</strong> as{" "}
         <strong>{data.designation}</strong> in {data.department} Department from{" "}
         <strong>{formatDate(data.joiningDate)}</strong> to &nbsp;
@@ -107,7 +130,7 @@ const ExperienceLetterTemplate = ({ data, company }) => {
         variant="body1"
         sx={{ mb: 3, textAlign: "justify", lineHeight: 1.8 }}
       >
-        During her tenure we observe her obedient, honest and dedication in her
+        During {hisher()} tenure we observe {himher()} obedient, honest and dedication in {hisher()}{" "}
         work.
       </Typography>
 
@@ -115,10 +138,10 @@ const ExperienceLetterTemplate = ({ data, company }) => {
         variant="body1"
         sx={{ mb: 3, textAlign: "justify", lineHeight: 1.8 }}
       >
-        We wish her bright and good speed in her future endeavors.
+        We wish {himher()} bright and good speed in {hisher()} future endeavors.
       </Typography>
 
-      <Typography variant="body1" sx={{ mb: 1, mt: 18 }}>
+      <Typography variant="body1" sx={{ mb: 1, mt: 10 }}>
         For <strong>{company.name || "[Company Name]"}</strong>
       </Typography>
 
