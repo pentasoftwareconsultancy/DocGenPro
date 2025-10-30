@@ -26,13 +26,13 @@ import Rpbuisness_signature from "../assets/images/rp/Rpbuisness_signature.png"
 
 
 
-// // Import placeholder images
-// import placeholderHeader from '../assets/images/SmartSoftware/smart-header.png';
-// // import placeholderFooter from '../assets/images/placeholder-footer.svg';
-// import placeholderFooter from '../assets/images/SmartSoftware/smart-footer.png';
-// import placeholderWatermark from '../assets/images/SmartSoftware/Watermark.png';
-// import placeholderSignature from '../assets/images/SmartSoftware/Sign.png';
-// import placeholderStamp from '../assets/images/SmartSoftware/Stamp.png';
+// Import placeholder images
+import placeholderHeader from '../assets/images/SmartSoftware/smart-header.png';
+// import placeholderFooter from '../assets/images/placeholder-footer.svg';
+import placeholderFooter from '../assets/images/SmartSoftware/smart-footer.png';
+import placeholderWatermark from '../assets/images/SmartSoftware/Watermark.png';
+import placeholderSignature from '../assets/images/SmartSoftware/Sign.png';
+import placeholderStamp from '../assets/images/SmartSoftware/Stamp.png';
 
 //Newage
 import Newage_header from "../assets/images/Newagecloud/Newageheader.png"
@@ -46,9 +46,11 @@ import cubeage_header from "../assets/images/cubeagetechnology/cubeageheader.png
 import cubeage_signature from "../assets/images/cubeagetechnology/cubeage_signature.png"
 import cubeage_stamp from "../assets/images/cubeagetechnology/cubeage_stamp.png"
 
-//samrtmatrix (Header footer and watermark prnding)
+//samrtmatrix (Header footer   prnding)
 import smartmatrix_stamp from "../assets/images/smartmatrix/SmartMatrix_stamp.png"
 import smartmatrix_signature from "../assets/images/smartmatrix/smartmatrix_signature.png"
+import smartmatrix_watermark from "../assets/images/smartmatrix/Smartmatrix_watermark.png"
+
 
 //  Devcons (watermark pending)
 import devcons_header from "../assets/images/devconsSoftware/devcons_header.png" 
@@ -155,10 +157,10 @@ export const companies = [
         footer: placeholderFooter,
         signature: smartmatrix_signature,
         stamp:smartmatrix_stamp,
-        watermark: placeholderWatermark,
+        watermark: smartmatrix_watermark,
         headerImage: placeholderHeader,
         footerImage: placeholderFooter,
-        watermarkImage: placeholderWatermark,
+        watermarkImage: smartmatrix_watermark,
         address: '789 Matrix Building, Bangalore, Karnataka 560001',
         email: 'hello@smartmatrixdigital.com',
         phone: '+91 080-34567890',
