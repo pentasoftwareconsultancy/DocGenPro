@@ -24,8 +24,6 @@ import Rpbuisness_signature from "../assets/images/rp/Rpbuisness_signature.png"
 
 
 
-
-
 // Import placeholder images
 import placeholderHeader from '../assets/images/SmartSoftware/smart-header.png';
 // import placeholderFooter from '../assets/images/placeholder-footer.svg';
