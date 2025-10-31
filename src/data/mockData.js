@@ -46,13 +46,13 @@ import cubeage_stamp from "../assets/images/cubeagetechnology/cubeage_stamp.png"
 
 //samrtmatrix (Header footer and watermark prnding)
 import smartmatrix_stamp from "../assets/images/smartmatrix/Smartmatrix_stamp.png"
-import smartmatrix_signature from "../assets/images/smartmatrix/smartmatrix_signature.png"
+import smartmatrix_signature from "../assets/images/smartmatrix/Smartmatrix_signature.png"
 
 //  Devcons (watermark pending)
-import devcons_header from "../assets/images/devconsSoftware/devcons_header.png" 
-import devcons_footer from "../assets/images/devconsSoftware/devcons_footer.png"
-import devcons_signature from "../assets/images/devconsSoftware/devcons_signature.png"
-import devcons_stamp from "../assets/images/devconsSoftware/devcons_stamp.png"
+import devcons_header from "../assets/images/devconssoftware/devcons_header.png" 
+import devcons_footer from "../assets/images/devconssoftware/devcons_footer.png"
+import devcons_signature from "../assets/images/devconssoftware/devcons_signature.png"
+import devcons_stamp from "../assets/images/devconssoftware/devcons_stamp.png"
 
 //penta
 import Penta_header from "../assets/images/Penta/Penta_header.png" 

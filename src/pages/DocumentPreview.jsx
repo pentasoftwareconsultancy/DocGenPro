@@ -168,6 +168,86 @@ const DocumentPreview = () => {
       setLoading(false);
     }
   };
+
+  const handleDownloadPDFWord = async () => {
+  if (!documentRef.current) {
+    setError('Document reference not found');
+    return;
+  }
+
+  setLoading(true);
+  setError('');
+
+  try {
+    setSnackbarMessage('Generating PDF (Content Only)...');
+    setSnackbarOpen(true);
+
+    // ✅ Target only the .a4-content-only section
+    const contentElement = documentRef.current.querySelector('.a4-content-only');
+    if (!contentElement) {
+      throw new Error('Content section not found (.a4-content-only missing)');
+    }
+
+    const canvas = await html2canvas(contentElement, {
+      scale: 2,
+      useCORS: true,
+      allowTaint: true,
+      logging: false,
+      letterRendering: true,
+      width: contentElement.scrollWidth,
+      height: contentElement.scrollHeight,
+      scrollX: 0,
+      scrollY: 0,
+      // ✅ Correct placement for exclusion logic
+      ignoreElements: (el) => {
+        const alt = el.getAttribute?.("alt")?.toLowerCase?.() || "";
+        if (alt.includes("hr signature") || alt.includes("company stamp")) return true;
+        return false;
+      },
+    });
+
+    const imgData = canvas.toDataURL('image/png');
+    const pdf = new jsPDF({
+      orientation: 'portrait',
+      unit: 'mm',
+      format: 'a4'
+    });
+
+    const imgWidth = 210; // A4 width in mm
+    const pageHeight = 297; // A4 height in mm
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+    let heightLeft = imgHeight;
+    let position = 0;
+
+    // Add first page
+    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+    heightLeft -= pageHeight;
+
+    // Add additional pages if needed
+    while (heightLeft >= 0) {
+      position = heightLeft - imgHeight;
+      pdf.addPage();
+      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+    }
+
+    const fileName = `${selectedDocType.name}-ContentOnly-${new Date()
+      .toISOString()
+      .slice(0, 10)}.pdf`;
+
+    pdf.save(fileName);
+
+    setSnackbarMessage(`PDF "${fileName}" (content only) downloaded successfully`);
+    setSnackbarOpen(true);
+  } catch (error) {
+    console.error('Error generating PDF:', error);
+    setError(`Failed to generate content-only PDF: ${error.message || 'Unknown error'}`);
+    setSnackbarMessage('PDF generation failed');
+    setSnackbarOpen(true);
+  } finally {
+    setLoading(false);
+  }
+};
   
   const handleCloseSnackbar = () => {
     setSnackbarOpen(false);
@@ -224,6 +304,16 @@ const DocumentPreview = () => {
             disabled={loading}
           >
             {loading ? 'Generating...' : 'Download PDF'}
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleDownloadPDFWord}
+            fullWidth={isMobile}
+            size={isMobile ? "small" : "medium"}
+            disabled={loading}
+          >
+            {loading ? 'Generating...' : 'Download Word PDF'}
           </Button>
         </Box>
       </Box>

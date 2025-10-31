@@ -47,7 +47,7 @@ const InternshipCertificateTemplate = ({ data, company }) => {
       <Typography
         variant="h4"
         align="center"
-        className="company-accent"
+        // className="company-accent"
         sx={{
           mt: 14,
           mb: 8,
