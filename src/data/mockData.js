@@ -101,11 +101,11 @@ export const companies = [
         watermarkImage: placeholderWatermark,
         address: 'Survey No. 21, Ganesham Commercial -A Office No. 102-B First Floor 18-21/24, BRTS Road Pimple Saudagar Pune, Maharashtra 411027 India',
         email: 'hr@cubeagetech.com',  
-        phone: '+91 9112100661', //(not sure)
+        phone: '+91 9112100661', 
         website: 'www.cubeagetech.com',
         city: 'Pune',
         regNo: 'CIN: U72900PN2022PTC217321',
-        hrName: 'Rajesh Kumar',   //(pendimg)
+        hrName: 'Saloni Dere',   
         brandColors: {
             primary: '#2196F3',
             secondary: '#1976D2',
@@ -130,11 +130,11 @@ export const companies = [
         watermarkImage: Newage_watermark,
         address: 'Office No. 4-B, Ganesham Commercial - A, Survey No. 21/18-21/24 BRTS Road,Pimple Saudagar, Pune-411027',
         email: 'contact@neweagecloud.com',
-        phone: ': +91 9112100663',
+        phone: ': +91 7066531234',
         website: 'https://neweageclouds.com/',
         city: 'Pune',
         regNo: 'CIN: U72900PN2022PTC217339',
-        hrName: 'Priya Sharma',  //(hr name pending)
+        hrName: 'Shyam Patil',  
         brandColors: {
             primary: '#4CAF50',
             secondary: '#388E3C',
@@ -163,7 +163,7 @@ export const companies = [
         website: 'https://smartmatrixds.com/',
         city: 'Pune',
         regNo: 'CIN: U72900PN2022PTC217318',
-        hrName: 'Amit Patel', //(hr name pending)
+        hrName: 'Shiv Lahane',
         brandColors: {
             primary: '#FF9800',
             secondary: '#F57C00',
@@ -188,11 +188,11 @@ export const companies = [
         watermarkImage: placeholderWatermark,
         address: 'Office No. 4-B, Ganesham Commercial - A, Survey No. 21/18-21/24, BRTS Road, Pimple Saudagar, Pune- 411027',
         email: ' hr@devconsoftware.com',
-        phone: '+91 9112100663',
+        phone: '+91 9112106565',
         website: 'https://www.devconsoftware.com/',
         city: 'Pune',
         regNo: 'CIN: U72900MH2022PTC396129',
-        hrName: 'Kalpana Khade', 
+        hrName: 'Mayur Patil ', 
         brandColors: {
             primary: '#9C27B0',
             secondary: '#7B1FA2',
@@ -221,7 +221,7 @@ export const companies = [
         website: 'https://www.rpbsolution.com/',
         city: 'Pune',
         regNo: '396129',
-        hrName: 'Ravi Prakash',  //(hr anme pending)
+        hrName: 'Aditi Dhambare',
         brandColors: {
             primary: '#F44336',
             secondary: '#D32F2F',
@@ -246,11 +246,11 @@ export const companies = [
         watermarkImage: Penta_watermark,
         address: 'Office No. 102-C, First Floor, Ganesham Commercial -A, Survey No. 21/18-21/24, BRTS Road, Pimple Saudagar, Pune- 4110271',
         email: 'hr@pentasoftwareconsultancy.com',
-        phone: '+91 7066541234|8329498294',
+        phone: '+91 7066541234',
         website: 'https://pentasoftwareconsultancy.com/',
         city: 'Pune',
         regNo: 'CIN: U72900MH2022PTC388125',
-        hrName: 'Ananya Banerjee',  //(hr name pending)
+        hrName: 'Neeta Dere',  
         brandColors: {
             primary: '#607D8B',
             secondary: '#455A64',
@@ -275,11 +275,11 @@ export const companies = [
         watermarkImage: placeholderWatermark,
         address: 'Office No: 4-A, Second Floor, Ganesham A Commercial Bldg, Off Nashik Wakad, BRT Road, Pimple Saudagar, Pune, Maharashtra 411027',
         email: 'hr@nimbjasolution.com',
-        phone: '+917066561234',
+        phone: '+91 7066561234',
         website: 'https://nimbjasolution.com/',
         city: 'Pune',
         regNo: 'CIN: U74999PN2018PTC177547',
-        hrName: 'Kiran Shah', //(hr name pending)
+        hrName: 'kalpana Khade ', 
         brandColors: {
             primary: '#795548',
             secondary: '#5D4037',
@@ -304,11 +304,11 @@ export const companies = [
         watermarkImage: jdit_watermark,
         address: '301, 3th Floor, Sai Vill Commercial Apartment,Next to Vaibhav Talkies, Behind RR Dage saries, Sr. No. 166,Malwadi Road, App. Sahyadri Hospital, Hadapsar, Pune 411028.',
         email: 'hr@jditbs.com',
-        phone: '+91 7057676132',
+        phone: '+91 8390930580',
         website: 'https://www.jditbs.com/',
         city: 'Pune',
         regNo: 'CIN: U72900PN2022PTC215539',
-        hrName: 'Deepak Joshi',  //(hr name pending)
+        hrName: 'Sweety Khade',  
         brandColors: {
             primary: '#1976D2',
             secondary: '#1565C0',
@@ -337,7 +337,7 @@ export const companies = [
         website: 'https://www.quickmanagementservices.com/',
         city: 'Pune',
         regNo: 'CIN: U74140WB2009PLC135775',
-        hrName: 'Meera Agarwal',
+        hrName: 'Subhash Sarkate',
         brandColors: {
             primary: '#E91E63',
             secondary: '#C2185B',
@@ -366,7 +366,7 @@ export const companies = [
         website: 'https://smartsoftwareservice.com/',
         city: 'Pune',
         regNo: 'CIN:U74990PN2016PTC158285',
-        hrName: 'Vikash Gupta',  //(hr name pending)
+        hrName: 'Sandip Patil', 
         brandColors: {
             primary: '#00BCD4',
             secondary: '#0097A7',
