@@ -4,17 +4,9 @@ import A4Page from '../layout/A4Page';
 import smartHeader from '../../assets/images/SmartSoftware/smart-header.png'; // Header image
 import newSignature from '../../assets/images/SmartSoftware/Sign.png'; // New signature
 import stamp from "../../assets/images/SmartSoftware/Stamp.png";
-import RelievingLetterTemplate1 from './RelievingLetterTemplate1';
+import watermarkImg from '../../assets/images/SmartSoftware/Watermark.png'; // ✅ Watermark image
 
-const RelievingLetterTemplate = ({ data, company }) => {
-  if(
-    company?.name === "Neweage Cloud Solution Pvt. Ltd." ||
-    company?.name === "Devcons Software Solution Pvt. Ltd." ||
-    company?.name === "Nimbja Security Solutions Pvt. Ltd."
-  ) {
-    return <RelievingLetterTemplate1 data={data} company={company} />;
-  }
-
+const RelievingLetterTemplate1 = ({ data, company }) => {
   const formatDate = (date) => {
     if (!date) return '';
     const d = new Date(date);
@@ -27,9 +19,9 @@ const RelievingLetterTemplate = ({ data, company }) => {
 
   return (
     <A4Page
-      headerSrc={smartHeader}
+      headerSrc={company.header || smartHeader}
       footerSrc={company.footer || company.footerImage}
-      contentTop="48mm"
+      contentTop="65mm"
       contentBottom="35mm"
       company={company}
     >
@@ -37,21 +29,6 @@ const RelievingLetterTemplate = ({ data, company }) => {
       <Typography sx={{ textAlign: "end", mb: "8mm" }}>
         {formatDate(data.issueDate)}
       </Typography>
-      <Typography sx={{ mb: "8mm" }}><strong>Ref:SMART\PUNHD\RMG01\Relieving-Letter\{data.employeeId}</strong></Typography>
-
-      {/* Title */}
-      <Box sx={{ textAlign: 'center', mb: 5, position: 'relative', zIndex: 1 }}>
-        <Typography
-          variant="h6"
-          sx={{
-            fontWeight: 'bold',
-            textDecoration: 'underline',
-            fontSize: '14pt'
-          }}
-        >
-          Relieving Letter
-        </Typography>
-      </Box>
 
       {/* Employee Info */}
       <Box sx={{ mb: 3, px: 4, position: 'relative', zIndex: 1 }}>
@@ -69,22 +46,17 @@ const RelievingLetterTemplate = ({ data, company }) => {
           Dear {data.employeeName?.split(' ')[0] || 'Anagha'},
         </Typography>
         <Typography variant="body1" sx={{ fontSize: '12pt', textAlign: 'justify', mb: 2 }}>
-          This is in reference to your resignation letter, wherein you had requested to be relieved
-          from your services on{' '}
-          <strong>{formatDate(data.lastWorkingDay) || 'November 24, 2022'}</strong>. We wish to
-          inform you that your resignation has been accepted and you shall be relieved from your
-          duties as <strong>{data.designation || 'Quality Analyst'}</strong>.
+          This letter confirms that we accept your voluntary and irrevocable resignation from employment of your position as <strong>{data.designation}</strong> in the Department of <strong>{data.department}</strong>. Your last day of employment will be <strong>{formatDate(data.lastWorkingDay)}</strong>. 
         </Typography>
         <Typography variant="body1" sx={{ fontSize: '12pt', textAlign: 'justify' }}>
-          We appreciate your contributions made to the organization and wish you all the best for
-          your future endeavors.
+          We wish you success in all of your future endeavors
         </Typography>
       </Box>
 
       {/* Signature */}
       <Box sx={{ mt: 8, px: 4, position: 'relative', zIndex: 1 }}>
-        <Typography variant="body1" sx={{ fontSize: '12pt', mb: 6 }}>
-          For <strong>{company.name || 'Smart Software Services (I) Pvt. Ltd.'}</strong>
+        <Typography variant="body1" sx={{ fontSize: '12pt', mb: 4 }}>
+          Sincerely,
         </Typography>
 
         <Box sx={{ textAlign: 'left' }}>
@@ -110,11 +82,14 @@ const RelievingLetterTemplate = ({ data, company }) => {
               mb: 1
             }}
           />
-          <Typography variant="body1" sx={{ fontSize: '12pt', lineHeight: 1.2 }}>
+          <Typography variant="body1" sx={{ fontSize: '12pt', lineHeight: 1.2, fontWeight: 'bold' }}>
             {company.hrName || 'Sandeep Patil'}
           </Typography>
-          <Typography variant="body2" sx={{ fontSize: '11pt' }}>
-            {data.signatoryDesignation || 'HR Manager - HR Shared Services'}
+          <Typography variant="body2" sx={{ fontSize: '11pt', fontWeight: 'bold' }}>
+            HR Relations Lead
+          </Typography>
+          <Typography variant="body2" sx={{ fontSize: '11pt', fontWeight: 'bold' }}>
+            Department of HR Relations
           </Typography>
         </Box>
       </Box>
@@ -122,4 +97,4 @@ const RelievingLetterTemplate = ({ data, company }) => {
   );
 };
 
-export default RelievingLetterTemplate;
+export default RelievingLetterTemplate1;

@@ -1,10 +1,10 @@
 import React from "react";
 import { Box, Typography, List, ListItem, ListItemText } from "@mui/material";
-import A4Page from "../../layout/A4Page";
-import placeholderSignature from '../../../assets/images/placeholder-signature.svg';
-import placeholderStamp from '../../../assets/images/placeholder-stamp.svg';
+import A4Page from "../../../layout/A4Page";
+import placeholderSignature from '../../../../assets/images/placeholder-signature.svg';
+import placeholderStamp from '../../../../assets/images/placeholder-stamp.svg';
 
-const OfferLetterPage5 = ({ data, company }) => {
+const Templete4OfferLetterPage5 = ({ data, company }) => {
   return (
     <A4Page
       headerSrc={company?.headerImage || "/assets/jdit_header.png"}
@@ -217,4 +217,4 @@ const OfferLetterPage5 = ({ data, company }) => {
   );
 };
 
-export default OfferLetterPage5;
+export default Templete4OfferLetterPage5;

@@ -1,11 +1,11 @@
 import React from "react";
 import { Typography, Table, TableHead, TableBody, TableRow, TableCell, Box, TableContainer, Grid } from "@mui/material";
-import A4Page from "../../layout/A4Page";
-import { generateOfferLetterComponents, formatCurrency } from "../../../utils/salaryCalculations";
-import signature from "../../../assets/images/SmartSoftware/Sign.png";
-import stamp from "../../../assets/images/SmartSoftware/Stamp.png";
+import A4Page from "../../../layout/A4Page";
+import { generateOfferLetterComponents, formatCurrency } from "../../../../utils/salaryCalculations";
+import signature from "../../../../assets/images/SmartSoftware/Sign.png";
+import stamp from "../../../../assets/images/SmartSoftware/Stamp.png";
 
-const OfferLetterPage2 = ({ data, company }) => {
+const Templete4OfferLetterPage2 = ({ data, company }) => {
   // Use auto-calculation if CTC is provided, otherwise use manual components
   const ctc = parseFloat(data.ctc || data.annualSalary || 350000); // Default to 3.5 LPA
   const autoComponents = generateOfferLetterComponents(ctc);
@@ -222,4 +222,4 @@ const OfferLetterPage2 = ({ data, company }) => {
   );
 };
 
-export default OfferLetterPage2;
+export default Templete4OfferLetterPage2;

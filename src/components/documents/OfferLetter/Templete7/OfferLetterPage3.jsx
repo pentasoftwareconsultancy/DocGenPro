@@ -1,8 +1,8 @@
 import React from "react";
 import { Typography, Box } from "@mui/material";
-import A4Page from "../../layout/A4Page";
+import A4Page from "../../../layout/A4Page";
 
-const OfferLetterPage3 = ({ data, company }) => {
+const Templete7OfferLetterPage3 = ({ data, company }) => {
   return (
     <A4Page
       headerSrc={company?.headerImage || "/assets/jdit_header.png"}
@@ -181,4 +181,4 @@ const OfferLetterPage3 = ({ data, company }) => {
   );
 };
 
-export default OfferLetterPage3;
+export default Templete7OfferLetterPage3;
