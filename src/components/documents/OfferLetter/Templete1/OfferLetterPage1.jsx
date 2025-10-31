@@ -42,12 +42,12 @@ const Template1OfferLetterPage1 = ({ company, data }) => {
       headerSrc={company.headerImage || "/assets/jdit_header.png"}
       footerSrc={company.footerImage || "/assets/jdit_footer.png"}
       watermarkSrc={company.watermarkImage || company.watermark || "/assets/jdit_watermark.png"}
-      contentTop="48mm"
+      contentTop="45mm"
       contentBottom="28mm"
       company={company}
     >
       {/* Offer Date */}
-      <Typography sx={{ mb: "10mm", textAlign: "right" }}>{offerDate}</Typography>
+      <Typography sx={{ mb: "5mm", textAlign: "right" }}>{offerDate}</Typography>
 
       {/* Candidate Details */}
       <Typography sx={{ mb: "3mm" }}>Name : {data.mrms} {data.candidateName}.</Typography>
@@ -60,26 +60,26 @@ const Template1OfferLetterPage1 = ({ company, data }) => {
       </Typography>
 
       {/* Body of the Letter */}
-      <Typography sx={{ textAlign: "justify", lineHeight: 1.6, mb: "6mm" }}>
+      <Typography sx={{ textAlign: "justify", lineHeight: 1.6, mb: "2mm" }}>
         Dear {data.candidateName.split(" ")[0]},
       </Typography>
 
-      <Typography sx={{ textAlign: "justify", lineHeight: 1.6, mb: "6mm" }}>
+      <Typography sx={{ textAlign: "justify", lineHeight: 1.6, mb: "4mm" }}>
         We are pleased to offer you the position of {position}. As discussed by us you are requested to Join
         On {joiningDate}, if there is any change in the date of joining changes can be taken under consideration.
         Your total Gross salary will be Rs. {grossSalary} ({grossSalaryinWords}) per year.
       </Typography>
 
-      <Typography sx={{ textAlign: "justify", lineHeight: 1.6, mb: "6mm" }}>
+      <Typography sx={{ textAlign: "justify", lineHeight: 1.6, mb: "4mm" }}>
         Subject to various deductions as per companies and government policy.
       </Typography>
 
-      <Typography sx={{ textAlign: "justify", lineHeight: 1.6 }}>
+      <Typography sx={{ textAlign: "justify", lineHeight: 1.6, mb: "4mm" }}>
         The roles and responsibilities and other terms and conditions of your employment will be specified
         in your letter of appointment.
       </Typography>
 
-      <Typography sx={{ textAlign: "justify", lineHeight: 1.6, mb: "6mm" }}>
+      <Typography sx={{ textAlign: "justify", lineHeight: 1.6, mb: "4mm" }}>
         We welcome you to <strong>{company.name}</strong> Family and hope it would be the
         beginning of a long and mutually beneficial association.
       </Typography>
@@ -92,37 +92,39 @@ const Template1OfferLetterPage1 = ({ company, data }) => {
       <Typography sx={{ mb: "3mm" }}>Yours Sincerely,</Typography>
       <Typography sx={{ mb: "1mm" }}>For <strong>{company.name}</strong></Typography>
       {/* Closing Box with images and text */}
-      <Box sx={{ mt: "6mm" }}>
-        <Grid display={"flex"} flexDirection="column" alignItems="flex-start">
+      <Box sx={{ mt: "6mm", display: "flex", justifyContent: "space-between" }}>
+        <Box display={"flex"} flexDirection="column" alignItems="flex-start">
           <Box display={"flex"} justifyContent="space-between">
 
-          {/* Left image */}
-          <Grid item>
-            <Box
-              component="img"
-              src={company.signature}
-              alt="Signature 1"
-              sx={{ width: 100, height: "auto" }}
-              />
-          </Grid>
+            {/* Left image */}
+            <Grid item>
+              <Box
+                component="img"
+                src={company.signature}
+                alt="Signature 1"
+                sx={{ width: 100, height: "auto" }}
+                />
+            </Grid>
 
-          {/* Right image */}
-          <Grid item>
-            <Box
-              component="img"
-              src={company.stamp}
-              alt="Stamp"
-              sx={{ width: 100, height: "auto" }}
-              />
-          </Grid>
+            {/* Right image */}
+            <Grid item>
+              <Box
+                component="img"
+                src={company.stamp}
+                alt="Stamp"
+                sx={{ width: 100, height: "auto" }}
+                />
+            </Grid>
           </Box>
-        <Box sx={{ mt: "2mm" }}>
-          <Typography sx={{ mb: "1mm" }}><strong>{company.hrName}</strong></Typography>
-          <Typography><strong>HR Manager - HR Shared Services</strong></Typography>
+          <Box sx={{ mt: "2mm" }}>
+            <Typography sx={{ mb: "1mm" }}>{company.hrName}</Typography>
+            <Typography>HR Manager - HR Shared Services</Typography>
+          </Box>
         </Box>
-        </Grid>
-
-        {/* Names and designation below images */}
+        <Box display={"flex"} flexDirection="column" justifyContent={"flex-end"}>
+          <Typography>Signature : ________________________</Typography>
+          <Typography>Candidate Name: {data.candidateName}</Typography>
+        </Box>
       </Box>
     </A4Page>
   );

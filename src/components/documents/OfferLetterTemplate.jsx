@@ -8,9 +8,6 @@ import Template1OfferLetterPage2 from "./OfferLetter/Templete1/OfferLetterPage2"
 // ===== Template 2 =====
 import Templete2OfferLetterPage1 from "./OfferLetter/Templete2/OfferLetterPage1";
 import Templete2OfferLetterPage2 from "./OfferLetter/Templete2/OfferLetterPage2";
-import Templete2OfferLetterPage3 from "./OfferLetter/Templete2/OfferLetterPage3";
-import Templete2OfferLetterPage4 from "./OfferLetter/Templete2/OfferLetterPage4";
-import Templete2OfferLetterPage5 from "./OfferLetter/Templete2/OfferLetterPage5";
 
 // ===== Template 3 =====
 import Templete3OfferLetterPage1 from "./OfferLetter/Templete3/OfferLetterPage1";
@@ -51,6 +48,10 @@ import Templete7OfferLetterPage5 from "./OfferLetter/Templete7/OfferLetterPage5"
 import Templete8OfferLetterPage1 from "./OfferLetter/Templete8/OfferLetterPage1";
 import Templete8OfferLetterPage2 from "./OfferLetter/Templete8/OfferLetterPage2";
 
+// ===== Template 9 =====
+import Templete9OfferLetterPage1 from "./OfferLetter/Templete9/OfferLetterPage1";
+import Templete9OfferLetterPage2 from "./OfferLetter/Templete9/OfferLetterPage2";
+
 const OfferLetterTemplate = ({ company, data }) => {
   // ✅ Group companies by template type
   const template1Companies = [
@@ -60,7 +61,6 @@ const OfferLetterTemplate = ({ company, data }) => {
 
   const template2Companies = [
     "RP Business Solution LLP",
-    "Nimbja Security Solutions Pvt. Ltd.",
   ];
 
   const template3Companies = [
@@ -87,15 +87,16 @@ const OfferLetterTemplate = ({ company, data }) => {
     "Devcons Software Solution Pvt. Ltd."
   ];
 
+  const template9Companies = [
+    "Nimbja Security Solutions Pvt. Ltd."
+  ];
+
   // 🗺️ Map template numbers to components
   const templateMap = {
     1: [Template1OfferLetterPage1, Template1OfferLetterPage2],
     2: [
       Templete2OfferLetterPage1,
       Templete2OfferLetterPage2,
-      Templete2OfferLetterPage3,
-      Templete2OfferLetterPage4,
-      Templete2OfferLetterPage5,
     ],
     3: [
       Templete3OfferLetterPage1,
@@ -136,6 +137,10 @@ const OfferLetterTemplate = ({ company, data }) => {
       Templete8OfferLetterPage1,
       Templete8OfferLetterPage2,
     ],
+    9: [
+      Templete9OfferLetterPage1,
+      Templete9OfferLetterPage2,
+    ],
   };
 
   // 🧠 Determine which template to use
@@ -157,6 +162,8 @@ const OfferLetterTemplate = ({ company, data }) => {
     selectedTemplateNumber = 7;
   } else if (templete8Companies.includes(company?.name)) {
     selectedTemplateNumber = 8;
+  } else if (template9Companies.includes(company?.name)) {
+    selectedTemplateNumber = 9;
   }
 
   const SelectedTemplates = templateMap[selectedTemplateNumber];
