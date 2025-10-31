@@ -1,9 +1,9 @@
 // OfferLetterPage1.js
 import React from "react";
 import { Typography, Box, Grid } from "@mui/material";
-import A4Page from "../../layout/A4Page";
-import signature from "../../../assets/images/SmartSoftware/Sign.png";
-import stamp from "../../../assets/images/SmartSoftware/Stamp.png";
+import A4Page from "../../../layout/A4Page";
+import signature from "../../../../assets/images/SmartSoftware/Sign.png";
+import stamp from "../../../../assets/images/SmartSoftware/Stamp.png";
 
 const numberToWords = (num) => {
   if (num === 0) return "Zero Rupees Only";
@@ -29,7 +29,7 @@ const numberToWords = (num) => {
   return inWords(num) + " Rupees Only";
 };
 
-const OfferLetterPage1 = ({ company, data }) => {
+const Templete6OfferLetterPage1 = ({ company, data }) => {
   const fmtDate = (d) =>
     d ? new Date(d).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" }) : "";
 
@@ -121,4 +121,4 @@ const OfferLetterPage1 = ({ company, data }) => {
   );
 };
 
-export default OfferLetterPage1;
+export default Templete6OfferLetterPage1;
