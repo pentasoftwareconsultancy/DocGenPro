@@ -45,7 +45,7 @@ import cubeage_signature from "../assets/images/cubeagetechnology/cubeage_signat
 import cubeage_stamp from "../assets/images/cubeagetechnology/cubeage_stamp.png"
 
 //samrtmatrix (Header footer and watermark prnding)
-import smartmatrix_stamp from "../assets/images/smartmatrix/SmartMatrix_stamp.png"
+import smartmatrix_stamp from "../assets/images/smartmatrix/Smartmatrix_stamp.png"
 import smartmatrix_signature from "../assets/images/smartmatrix/smartmatrix_signature.png"
 
 //  Devcons (watermark pending)
