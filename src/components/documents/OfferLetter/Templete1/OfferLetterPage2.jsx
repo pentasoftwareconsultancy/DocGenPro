@@ -15,23 +15,26 @@ const Template1OfferLetterPage2 = ({ data, company }) => {
   const basicAnnual = totalSalaryAnually * 0.4013;
   const hraAnnual = totalSalaryAnually * 0.1798;
   const conveyanceAnnual = totalSalaryAnually * 0.1599;
-  const medicAnnual = totalSalaryAnually * 0.1394;
   const specialAnnual = totalSalaryAnually * 0.1196;
+  const foodAnnual = totalSalaryAnually * 0.0929;
+  const medicAnnual = totalSalaryAnually * 0.0464;
 
   // === Monthly components ===
   const basicMonthly = Math.round(basicAnnual / 12);
   const hraMonthly = Math.round(hraAnnual / 12);
   const conveyanceMonthly = Math.round(conveyanceAnnual / 12);
-  const medicMonthly = Math.round(medicAnnual / 12);
   const specialMonthly = Math.round(specialAnnual / 12);
+  const foodMonthly = Math.round(foodAnnual / 12);
+  const medicMonthly = Math.round(medicAnnual / 12);
 
   // === Components array for table ===
   const salaryComponents = [
     { name: "Basic", monthly: basicMonthly, annual: basicAnnual },
-    { name: "HRA", monthly: hraMonthly, annual: hraAnnual },
-    { name: "Conveyance", monthly: conveyanceMonthly, annual: conveyanceAnnual },
-    { name: "Medic", monthly: medicMonthly, annual: medicAnnual },
-    { name: "Special", monthly: specialMonthly, annual: specialAnnual },
+    { name: "House Rent Allowance", monthly: hraMonthly, annual: hraAnnual },
+    { name: "Dearness Allowance", monthly: conveyanceMonthly, annual: conveyanceAnnual },
+    { name: "Special Allowance", monthly: specialMonthly, annual: specialAnnual },
+    { name: "Food Allowance", monthly: foodMonthly, annual: foodAnnual },
+    { name: "Misc. Allowance", monthly: medicMonthly, annual: medicAnnual },
   ];
   
   // === Totals ===
@@ -43,14 +46,13 @@ const Template1OfferLetterPage2 = ({ data, company }) => {
       headerSrc={company?.headerImage || "/assets/jdit_header.png"}
       footerSrc={company?.footerImage || "/assets/jdit_footer.png"}
       watermarkSrc={company?.watermarkImage || company?.watermark || "/assets/jdit_watermark.png"}
-      contentTop="48mm"
+      contentTop="45mm"
       contentBottom="28mm"
       company={company}
     >
       {/* Document Title */}
       <Typography
         align="center"
-        className="company-accent"
         sx={{
           fontSize: "16pt",
           fontWeight: 700,
@@ -64,9 +66,9 @@ const Template1OfferLetterPage2 = ({ data, company }) => {
 
       <Typography sx={{
         fontSize: "11pt",
+        fontWeight: "bold",
         textAlign: "center",
         lineHeight: 1.5,
-        fontStyle: "italic",
         marginBottom: "6mm"
       }}>
         Annexure A Salary Structure
@@ -76,13 +78,13 @@ const Template1OfferLetterPage2 = ({ data, company }) => {
       <TableContainer sx={{ mb: "6mm" }}>
         <Table sx={{ border: "2px solid #333" }}>
           <TableHead>
-            <TableRow sx={{ backgroundColor: "#1976d2" }}>
+            <TableRow sx={{ backgroundColor: "rgba(116, 194, 250, 0.7)" }}>
               <TableCell sx={{
                 fontWeight: "bold",
                 border: "1px solid #333",
-                fontSize: "12pt",
+                fontSize: "11pt",
                 color: "white",
-                py: "3mm"
+                py: "0.5mm"
               }}>
                 Salary Components
               </TableCell>
@@ -91,34 +93,51 @@ const Template1OfferLetterPage2 = ({ data, company }) => {
                 sx={{
                   fontWeight: "bold",
                   border: "1px solid #333",
-                  fontSize: "12pt",
+                  fontSize: "11pt",
                   color: "white",
-                  py: "3mm"
+                  py: "0.5mm"
                 }}
               >
-                Per Month (₹)
+                Per month (Rs.)
               </TableCell>
               <TableCell
                 align="center"
                 sx={{
                   fontWeight: "bold",
                   border: "1px solid #333",
-                  fontSize: "12pt",
+                  fontSize: "11pt",
                   color: "white",
-                  py: "3mm"
+                  py: "0.5mm"
                 }}
               >
-                Per Annum (₹)
+                Per Annum (Rs.)
               </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
+            <TableRow>
+              <TableCell sx={{
+                  border: "1px solid #333",
+                  fontSize: "11pt",
+                  py: "3mm"
+                }}></TableCell>
+              <TableCell sx={{
+                  border: "1px solid #333",
+                  fontSize: "11pt",
+                  py: "3mm"
+                }}></TableCell>
+              <TableCell sx={{
+                  border: "1px solid #333",
+                  fontSize: "11pt",
+                  py: "3mm"
+                }}></TableCell>
+            </TableRow>
             {salaryComponents.map((row, i) => (
               <TableRow key={i}>
                 <TableCell sx={{
                   border: "1px solid #333",
                   fontSize: "11pt",
-                  py: "2mm"
+                  py: "0.5mm"
                 }}>
                   {row.name}
                 </TableCell>
@@ -127,7 +146,7 @@ const Template1OfferLetterPage2 = ({ data, company }) => {
                   sx={{
                     border: "1px solid #333",
                     fontSize: "11pt",
-                    py: "2mm"
+                    py: "0.5mm"
                   }}
                 >
                   {formatCurrency(row.monthly)}
@@ -137,7 +156,7 @@ const Template1OfferLetterPage2 = ({ data, company }) => {
                   sx={{
                     border: "1px solid #333",
                     fontSize: "11pt",
-                    py: "2mm"
+                    py: "0.5mm"
                   }}
                 >
                   {formatCurrency(row.annual)}
@@ -145,12 +164,12 @@ const Template1OfferLetterPage2 = ({ data, company }) => {
               </TableRow>
             ))}
             {/* Totals Row */}
-            <TableRow sx={{ backgroundColor: "rgba(227, 242, 253, 0.7)", }}>
+            <TableRow sx={{ backgroundColor: "rgba(116, 194, 250, 0.7)", }}>
               <TableCell sx={{
                 fontWeight: "bold",
                 border: "2px solid #333",
-                fontSize: "12pt",
-                py: "3mm"
+                fontSize: "11pt",
+                py: "0.5mm"
               }}>
                 Total Monthly Gross Salary
               </TableCell>
@@ -159,8 +178,8 @@ const Template1OfferLetterPage2 = ({ data, company }) => {
                 sx={{
                   fontWeight: "bold",
                   border: "2px solid #333",
-                  fontSize: "12pt",
-                  py: "3mm"
+                  fontSize: "11pt",
+                  py: "0.5mm"
                 }}
               >
                 {formatCurrency(totalMonthly)}
@@ -170,8 +189,8 @@ const Template1OfferLetterPage2 = ({ data, company }) => {
                 sx={{
                   fontWeight: "bold",
                   border: "2px solid #333",
-                  fontSize: "12pt",
-                  py: "3mm"
+                  fontSize: "11pt",
+                  py: "0.5mm"
                 }}
               >
                 {formatCurrency(totalAnnual)}

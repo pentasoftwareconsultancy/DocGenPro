@@ -3,7 +3,7 @@ import { Typography, Table, TableHead, TableBody, TableRow, TableCell, Box, Tabl
 import A4Page from "../../../layout/A4Page";
 import { generateOfferLetterComponents, formatCurrency } from "../../../../utils/salaryCalculations";
 
-const Template2OfferLetterPage2 = ({ data, company }) => {
+const Template9OfferLetterPage2 = ({ data, company }) => {
   // Use auto-calculation if CTC is provided, otherwise use manual components
   const ctc = parseFloat(data.ctc || data.annualSalary || 350000); // Default to 3.5 LPA
   const autoComponents = generateOfferLetterComponents(ctc);
@@ -220,4 +220,4 @@ const Template2OfferLetterPage2 = ({ data, company }) => {
   );
 };
 
-export default Template2OfferLetterPage2;
+export default Template9OfferLetterPage2;

@@ -2,8 +2,6 @@
 import React from "react";
 import { Typography, Box, Grid } from "@mui/material";
 import A4Page from "../../../layout/A4Page";
-import signature from "../../../../assets/images/SmartSoftware/Sign.png";
-import stamp from "../../../../assets/images/SmartSoftware/Stamp.png";
 
 const numberToWords = (num) => {
   if (num === 0) return "Zero Rupees Only";
@@ -42,81 +40,66 @@ const Templete3OfferLetterPage1 = ({ company, data }) => {
   return (
     <A4Page
       headerSrc={company.headerImage || "/assets/jdit_header.png"}
-      footerSrc={company.footerImage || "/assets/jdit_footer.png"}
       watermarkSrc={company.watermarkImage || company.watermark || "/assets/jdit_watermark.png"}
-      contentTop="48mm"
+      contentTop="68mm"
       contentBottom="28mm"
       company={company}
     >
+      <Typography sx={{ textDecoration: "underline", textAlign: "center", fontSize: "10pt" }}>
+        Offer Cum Appointment Letter
+      </Typography>
       {/* Offer Date */}
-      <Typography sx={{ mb: "10mm", textAlign: "right" }}>{offerDate}</Typography>
+      <Typography sx={{ textAlign: "right", fontSize: "10pt" }}>{offerDate}</Typography>
 
       {/* Candidate Details */}
-      <Typography sx={{ mb: "3mm" }}>Name : {data.mrms} {data.candidateName}</Typography>
-      <Typography sx={{ mb: "6mm" }}>Position : {position}</Typography>
+      <Typography sx={{ mb: "6mm", fontWeight: "bold", fontSize: "10pt" }}>Employee Name: {data.mrms} {data.candidateName}</Typography>
 
       {/* Body of the Letter */}
-      <Typography sx={{ textAlign: "justify", lineHeight: 1.6, mb: "6mm" }}>
+      <Typography sx={{ textAlign: "justify", lineHeight: 1.6, mb: "3mm", fontWeight: "bold", fontSize: "10pt" }}>
         Dear {data.candidateName.split(" ")[0]},
       </Typography>
 
-      <Typography sx={{ textAlign: "justify", lineHeight: 1.6, mb: "6mm" }}>
-        We are pleased to offer you the position of {position}. As discussed by us you are requested to Join
-        On {joiningDate}, if there is any change in the date of joining changes can be taken under consideration.
-        Your total Gross salary will be Rs. {grossSalary} ({grossSalaryinWords}) per year.
+      <Typography sx={{ textAlign: "justify", lineHeight: 1.6, mb: "2mm", fontSize: "10pt" }}>
+        With reference to your application and the subsequent interview you had with us, we are pleased to offer you the position of {data.position} for {data.location} Location on the following terms and conditions:
       </Typography>
 
-      <Typography sx={{ textAlign: "justify", lineHeight: 1.6, mb: "6mm" }}>
-        Subject to various deductions as per companies and government policy.
+      <Typography sx={{ textAlign: "justify", lineHeight: 1.6, mb: "2mm", fontWeight: "bold", fontSize: "10pt" }}>
+        1. {"  "}Date of Appointment
       </Typography>
 
-      <Typography sx={{ textAlign: "justify", lineHeight: 1.6 }}>
-        The roles and responsibilities and other terms and conditions of your employment will be specified
-        in your letter of appointment.
+      <Typography sx={{ textAlign: "justify", lineHeight: 1.6, mb: "2mm", fontSize: "10pt" }}>
+        {"      "}Your appointment is effective from <strong>{joiningDate}</strong>.
       </Typography>
 
-      <Typography sx={{ textAlign: "justify", lineHeight: 1.6, mb: "6mm" }}>
-        We welcome you to <strong>{company.name}</strong> Family and hope it would be the
-        beginning of a long and mutually beneficial association.
+      <Typography sx={{ textAlign: "justify", lineHeight: 1.6, mb: "2mm", fontWeight: "bold", fontSize: "10pt" }}>
+        2. {"  "}Joining
       </Typography>
 
-      <Typography sx={{ textAlign: "center", lineHeight: 1.6, mb: "6mm" }}>
-        Kindly acknowledge the duplicate copy of this letter as an acceptance of this offer.
+      <Typography sx={{ textAlign: "justify", lineHeight: 1.6, mb: "2mm", fontSize: "10pt" }}>
+        {"      "}Your Joining will be at “<strong>{company.name}</strong>”, “<strong>{data.location}</strong>”.
       </Typography>
 
-      {/* Closing */}
-      <Typography sx={{ mb: "3mm" }}>Yours Sincerely,</Typography>
-      <Typography sx={{ mb: "1mm" }}>For <strong>{company.name}</strong></Typography>
-      {/* Closing Box with images and text */}
-      <Box sx={{ mt: "6mm" }}>
-        <Grid container spacing={2} alignItems="center">
-          {/* Left image */}
-          <Grid item>
-            <Box
-              component="img"
-              src={signature}
-              alt="Signature 1"
-              sx={{ width: 100, height: "auto" }}
-            />
-          </Grid>
+      <Typography sx={{ textAlign: "justify", lineHeight: 1.6, mb: "2mm", fontWeight: "bold", fontSize: "10pt" }}>
+        3. {"  "}Place of Employment
+      </Typography>
 
-          {/* Right image */}
-          <Grid item>
-            <Box
-              component="img"
-              src={stamp}
-              alt="Stamp"
-              sx={{ width: 100, height: "auto" }}
-            />
-          </Grid>
-        </Grid>
+      <Typography sx={{ textAlign: "justify", lineHeight: 1.6, mb: "2mm", fontSize: "10pt", display: "flex", gap: "2mm", ml: "3mm" }}>
+        3.1<Box>You acknowledge and agree that you may be assigned, transferred or deputed to offices, departments or Units of Company and / or its affiliates and / or their contractors and clients, whether in India or abroad. In the event of any such assignment, transfer or deputation, you may be required to consent to and /or agree to certain other agreements, or policies applicable to such an assignment, deputation or transfer.</Box>
+      </Typography>
 
-        {/* Names and designation below images */}
-        <Box sx={{ mt: "2mm" }}>
-          <Typography sx={{ mb: "1mm" }}><strong>{company.hrName}</strong></Typography>
-          <Typography><strong>HR Manager - HR Shared Services</strong></Typography>
-        </Box>
-      </Box>
+      <Typography sx={{ textAlign: "justify", lineHeight: 1.6, mb: "2mm", fontSize: "10pt", display: "flex", gap: "2mm" , ml: "3mm"}}>
+        3.2<Box>You acknowledge and agree that you may be assigned, transferred or deputed to offices, departments or Units of Company and / or its affiliates and / or their contractors and clients, whether in India or abroad. In the event of any such assignment, transfer or deputation, you may be required to consent to and /or agree to certain other agreements, or policies applicable to such an assignment, deputation or transfer.</Box>
+      </Typography>
+
+      <Typography sx={{ textAlign: "justify", lineHeight: 1.6, mb: "2mm", fontWeight: "bold", fontSize: "10pt" }}>
+        4. {"  "}Cost to Company
+      </Typography>
+
+      <Typography sx={{ textAlign: "justify", lineHeight: 1.6, mb: "2mm", fontSize: "10pt" }}>
+        <Box sx={{ marginLeft: "7mm", fontSize: "10pt", mb: "2mm" }}>You will be paid an annual emolument of <strong>Rs. {grossSalary}/-(Rupees {grossSalaryinWords} Only)</strong>. For detailed Break-up kindly refer the Annexure I.</Box>
+        <Box sx={{ marginLeft: "7mm", fontSize: "10pt", mb: "2mm" }}>Your compensation may be reviewed on periodic basis and your salary may be adjusted, depending upon various factors, including your performance during the preceding period.</Box>
+        <Box sx={{ marginLeft: "7mm", fontSize: "10pt", mb: "2mm" }}>Notwithstanding the above, you acknowledge that it is Company’s policy to review the compensation payable to its employees for successive years and such compensation may be higher or lower than the compensation received for the previous year depending upon various factors, including the overall performance of the Company.</Box>
+      </Typography>
     </A4Page>
   );
 };

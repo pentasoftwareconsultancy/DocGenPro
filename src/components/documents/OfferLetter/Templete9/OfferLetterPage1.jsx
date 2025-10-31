@@ -27,7 +27,7 @@ import A4Page from "../../../layout/A4Page";
 //   return inWords(num) + " Rupees Only";
 // };
 
-const Templete2OfferLetterPage1 = ({ company, data }) => {
+const Templete9OfferLetterPage1 = ({ company, data }) => {
   const fmtDate = (d) =>
     d ? new Date(d).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" }) : "";
 
@@ -39,7 +39,7 @@ const Templete2OfferLetterPage1 = ({ company, data }) => {
   return (
     <A4Page
       headerSrc={company.headerImage || "/assets/jdit_header.png"}
-      footerSrc={company.footerImage || "/assets/jdit_footer.png"}
+      footerSrc={company.footerImage }
       watermarkSrc={company.watermarkImage || company.watermark || "/assets/jdit_watermark.png"}
       contentTop="48mm"
       contentBottom="28mm"
@@ -111,4 +111,4 @@ const Templete2OfferLetterPage1 = ({ company, data }) => {
   );
 };
 
-export default Templete2OfferLetterPage1;
+export default Templete9OfferLetterPage1;

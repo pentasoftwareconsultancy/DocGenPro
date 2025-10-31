@@ -78,10 +78,10 @@ const A4Page = ({
       />
     )}
     {/* FOOTER - HIGHLIGHT: width = 210mm */}
-    {(footerSrc || company?.footer || company?.footerImage || placeholderFooter) && (
+    {(footerSrc || company?.footer || company?.footerImage ) && (
       <Box
         component="img"
-        src={footerSrc || company?.footer || company?.footerImage || placeholderFooter}
+        src={footerSrc || company?.footer || company?.footerImage }
         alt="Footer"
         sx={{
           position: "absolute",
