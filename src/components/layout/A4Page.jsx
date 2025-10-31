@@ -124,6 +124,7 @@ const A4Page = ({
       )}
     {/* CONTENT */}
     <Box
+      className="a4-content-only" 
       sx={{
         position: "relative",
         zIndex: 2,
